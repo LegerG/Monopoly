@@ -1,4 +1,4 @@
-import DDC.*;
+package Modele;
 
 public class Gare extends Propriete {
 

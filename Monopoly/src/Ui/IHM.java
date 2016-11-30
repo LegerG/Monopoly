@@ -1,4 +1,4 @@
-package IHM;
+package Ui;
 
 public class IHM {
 

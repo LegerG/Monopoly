@@ -1,4 +1,4 @@
-package DDC;
+package Modele;
 
 public class AutreCarreau extends Carreau {
 }

@@ -1,5 +1,7 @@
-import java.util.*;
-import DDC.*;
+
+package Modele;
+
+import java.util.Collection; //Tranformer en truc plus cool
 
 public class Joueur {
 

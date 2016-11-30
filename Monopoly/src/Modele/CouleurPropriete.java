@@ -1,3 +1,5 @@
+package Modele;
+
 public enum CouleurPropriete {
 	bleuFonce,
 	orange,

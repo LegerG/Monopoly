@@ -1,3 +1,5 @@
+package Modele;
+
 public abstract class Carreau {
 
 	private int numero;

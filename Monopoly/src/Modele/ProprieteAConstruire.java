@@ -1,4 +1,4 @@
-package DDC;
+package Modele;
 
 import java.util.*;
 
@@ -29,5 +29,9 @@ public class ProprieteAConstruire extends Propriete {
 		// TODO - implement ProprieteAConstruire.calculLoyerDouble
 		throw new UnsupportedOperationException();
 	}
+
+    public void payerLoyer(Joueur jAch, Joueur JRec) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
