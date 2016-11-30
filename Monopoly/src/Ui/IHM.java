@@ -1,27 +1,46 @@
-package Ui;
+package IHM;
 
-import Controleur.Controleur;
-import java.util.Observable;
+public class IHM {
 
-public class IHM  extends Observable{
-	public Controleur monopoly;
-	public Controleur controleur;
+	Controleur monopoly;
+	Controleur controleur;
 
-    public Controleur getMonopoly() {
-        return monopoly;
-    }
+	/**
+	 * 
+	 * @param type
+	 * @param nomProp
+	 * @param prix
+	 */
+	public void message(TypeMessage type, String nomProp, int prix) {
+		// TODO - implement IHM.message
+		throw new UnsupportedOperationException();
+	}
 
-    public void setMonopoly(Controleur _monopoly) {
-        this.monopoly = _monopoly;
-    }
+	/**
+	 * 
+	 * @param type
+	 * @param nomProp
+	 * @param loyer
+	 * @param cash
+	 */
+	public void message(TypeMessage type, String nomProp, int loyer, int cash) {
+		// TODO - implement IHM.message
+		throw new UnsupportedOperationException();
+	}
 
-    public Controleur getControleur() {
-        return controleur;
-    }
+	/**
+	 * 
+	 * @param type
+	 * @param nomProp
+	 */
+	public void message(TypeMessage type, String nomProp) {
+		// TODO - implement IHM.message
+		throw new UnsupportedOperationException();
+	}
 
-    public void setControleur(Controleur _controleur) {
-        this.controleur = _controleur;
-    }
-        
-        
+	private void notifierObservateurs() {
+		// TODO - implement IHM.notifierObservateurs
+		throw new UnsupportedOperationException();
+	}
+
 }

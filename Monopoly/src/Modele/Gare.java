@@ -1,25 +1,25 @@
-package Modele;
-
-import Modele.Joueur;
+import DDC.*;
 
 public class Gare extends Propriete {
 
-	public void payerLoyer(Joueur aJAch, Joueur aJRec) {
+	/**
+	 * 
+	 * @param nb
+	 * @param loyerBase
+	 */
+	public int calculLoyer(int nb, int loyerBase) {
+		// TODO - implement Gare.calculLoyer
 		throw new UnsupportedOperationException();
 	}
 
-        @Override
-	protected int calculLoyer() {
+	public int getLoyerBase() {
+		// TODO - implement Gare.getLoyerBase
 		throw new UnsupportedOperationException();
 	}
 
-    public Joueur getProprietaire() {
-        return _proprietaire;
-    }
+	public int calculLoyer() {
+		// TODO - implement Gare.calculLoyer
+		throw new UnsupportedOperationException();
+	}
 
-    public void setProprietaire(Joueur _proprietaire) {
-        this._proprietaire = _proprietaire;
-    }
-        
-        
 }

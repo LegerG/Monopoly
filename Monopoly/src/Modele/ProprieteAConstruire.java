@@ -1,27 +1,33 @@
-package Modele;
+package DDC;
 
-import Modele.Propriete;
+import java.util.*;
 
 public class ProprieteAConstruire extends Propriete {
 
-    @Override
-    public void payerLoyer(Joueur aJAch, Joueur aJRec) {
-            throw new UnsupportedOperationException();
-    }
+	private Collection<Groupe> proprietesAconstruire;
 
-    @Override
-    protected int calculLoyer() {
-            throw new UnsupportedOperationException();
-    }
+	public int calculLoyer() {
+		// TODO - implement ProprieteAConstruire.calculLoyer
+		throw new UnsupportedOperationException();
+	}
 
-    @Override
-    public Joueur getProprietaire() {
-        return _proprietaire;
-    }
+	public Groupe getGroupe() {
+		// TODO - implement ProprieteAConstruire.getGroupe
+		throw new UnsupportedOperationException();
+	}
 
-    public void setProprietaire(Joueur _proprietaire) {
-        this._proprietaire = _proprietaire;
-    }
-        
-        
+	public int getLoyer() {
+		// TODO - implement ProprieteAConstruire.getLoyer
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param loyer
+	 */
+	public int calculLoyerDouble(int loyer) {
+		// TODO - implement ProprieteAConstruire.calculLoyerDouble
+		throw new UnsupportedOperationException();
+	}
+
 }

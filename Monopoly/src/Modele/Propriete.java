@@ -1,37 +1,54 @@
-package Modele;
+package DDC;
 
 public abstract class Propriete extends Carreau {
-    private int _prix;
-    private int _loyerBase;
-    public Joueur _proprietaire;
 
-    public abstract void payerLoyer(Joueur aJAch, Joueur aJRec);
+	private Joueur proprietaire;
+	private int prix;
+	private int loyerBase;
+	private Joueur attribute;
+	private Joueur g = DDC.Propriete.prix;
 
-    public void acheterPropriete(Joueur aJ) {
-            throw new UnsupportedOperationException();
-    }
+	/**
+	 * 
+	 * @param jAch
+	 * @param JRec
+	 */
+	public abstract void payerLoyer(Joueur jAch, Joueur JRec);
 
-    public Joueur getProprietaire() {
-            return this._proprietaire;
-    }
+	/**
+	 * 
+	 * @param jCourant
+	 */
+	public void acheterPropriete(Joueur jCourant) {
+		// TODO - implement Propriete.acheterPropriete
+		throw new UnsupportedOperationException();
+	}
 
-    protected abstract int calculLoyer();
+	public Joueur getProprietaire() {
+		return this.proprietaire;
+	}
 
-    public int getPrix() {
-        return _prix;
-    }
+	public abstract int calculLoyer();
 
-    public void setPrix(int _prix) {
-        this._prix = _prix;
-    }
+	/**
+	 * 
+	 * @param j
+	 */
+	public void setPropriétaire(Joueur j) {
+		// TODO - implement Propriete.setPropriétaire
+		throw new UnsupportedOperationException();
+	}
 
-    public int getLoyerBase() {
-        return _loyerBase;
-    }
+	public int getPrix() {
+		return this.prix;
+	}
 
-    public void setLoyerBase(int _loyerBase) {
-        this._loyerBase = _loyerBase;
-    }
-        
-        
+	/**
+	 * 
+	 * @param jCourant
+	 */
+	public void setProprietaire(Joueur jCourant) {
+		this.proprietaire = jCourant;
+	}
+
 }
