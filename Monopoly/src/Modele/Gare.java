@@ -8,16 +8,14 @@ public class Gare extends Propriete {
 	 * @param loyerBase
      * @return 
 	 */
-    public int calculLoyer(int nb, int loyerBase) {
-            // TODO - implement Gare.calculLoyer
-            throw new UnsupportedOperationException();
-    }
+
 
     public int getLoyerBase() {
             // TODO - implement Gare.getLoyerBase
             throw new UnsupportedOperationException();
     }
 
+    @Override
     public int calculLoyer() {
             // TODO - implement Gare.calculLoyer
             throw new UnsupportedOperationException();

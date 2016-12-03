@@ -1,8 +1,7 @@
 package Ui;
 
 public class IHM {
-
-	Controleur monopoly;
+    
 	Controleur controleur;
 
 	
