@@ -6,7 +6,7 @@ public abstract class Propriete extends Carreau {
 	private int prix;
 	private int loyerBase;
 	private Joueur attribute;
-	private Joueur g = Propriete.prix;
+	
 
 	/**
 	 * 
