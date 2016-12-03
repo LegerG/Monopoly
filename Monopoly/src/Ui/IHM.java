@@ -1,14 +1,18 @@
 package Ui;
 
+import Controleur.Controleur;
+
 public class IHM {
     
-	Controleur controleur;
+    public IHM() {
+        //Constructeur
+    }
 
-	
+    
 
-	private void notifierObservateurs() {
-		// TODO - implement IHM.notifierObservateurs
-		throw new UnsupportedOperationException();
-	}
+    private void notifierObservateurs() {
+            // TODO - implement IHM.notifierObservateurs
+            throw new UnsupportedOperationException();
+    }
 
 }
