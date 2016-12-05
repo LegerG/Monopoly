@@ -2,13 +2,10 @@ package Modele;
 
 public class Gare extends Propriete {
 
-	/**
-	 * 
-	 * @param nb
-	 * @param loyerBase
-     * @return 
-	 */
+    public Gare() {
+    }
 
+    
 
     public int getLoyerBase() {
             // TODO - implement Gare.getLoyerBase

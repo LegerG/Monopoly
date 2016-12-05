@@ -4,7 +4,7 @@ import java.util.*;
 
 public class ProprieteAConstruire extends Propriete {
 
-	private Collection<Groupe> proprietesAconstruire;
+	private Groupe groupe;
 
 	public int calculLoyer() {
 		// TODO - implement ProprieteAConstruire.calculLoyer
@@ -30,8 +30,13 @@ public class ProprieteAConstruire extends Propriete {
 		throw new UnsupportedOperationException();
 	}
 
-    public void payerLoyer(Joueur jAch, Joueur JRec) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        public void payerLoyer(Joueur jAch, Joueur JRec) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
 
+        public void setGroupe(Groupe groupe) {
+            this.groupe = groupe;
+        }
+        
+        
 }
