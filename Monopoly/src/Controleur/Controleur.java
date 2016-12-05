@@ -1,6 +1,8 @@
 package Controleur;
 
+import Modele.AutreCarreau;
 import Modele.Carreau;
+import Modele.Compagnie;
 import Modele.CouleurPropriete;
 import Modele.Gare;
 import Modele.Joueur;
@@ -14,17 +16,18 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 public class Controleur {
 
 	private IHM ihm;
         private ArrayList<Carreau> carreaux = new ArrayList<>();
-        private Carreau depart;
+        
         
 
     public Controleur(IHM ihm) {
         this.ihm = ihm;
-        CreerPlateau("Data/data.txt");
-        
+        CreerPlateau("src/Data/data.txt");
+        System.out.println(carreaux.size());
     }
                
         
@@ -51,21 +54,11 @@ public class Controleur {
 					System.out.println("Propriété :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                                         ProprieteAConstruire p = new ProprieteAConstruire();
                                         
-                                        p.setNumero(Integer.parseInt(data.get(i)[2]));
-
-                                        p.setNomCarreau(data.get(i)[3]);
-                                        
-                           
-                                         
-                                        p.setPrix(Integer.parseInt(data.get(i)[5]));
-                                        
-                                        p.setLoyerBase(Integer.parseInt(data.get(i)[6]));
-                                        
+                                        p.setNumero(Integer.parseInt(data.get(i)[1]));
+                                        p.setNomCarreau(data.get(i)[2]);
+                                        p.setPrix(Integer.parseInt(data.get(i)[4]));
+                                        p.setLoyerBase(Integer.parseInt(data.get(i)[5]));
                                         //Ajouter Couleur/groupe p.setGroupe(CouleurPropriete.valueOf(data.get(i)[4]));
-                                        
-                                        
-                                        
-                                        
                                         
                                         carreaux.add(p); 
 				}
@@ -73,18 +66,31 @@ public class Controleur {
 					System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                                         Gare g = new Gare();
                                         
-                                        g.setNumero(Integer.parseInt(data.get(i)[2]));
-                                        g.setNomCarreau(data.get(i)[3]);
-                                        g.setPrix(Integer.parseInt(data.get(i)[4]));
+                                        g.setNumero(Integer.parseInt(data.get(i)[1]));
+                                        g.setNomCarreau(data.get(i)[2]);
+                                        g.setPrix(Integer.parseInt(data.get(i)[3]));
                                         
                                         carreaux.add(g);
 				}
 				else if(caseType.compareTo("C") == 0){
 					System.out.println("Compagnie :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                                        Compagnie c = new Compagnie();
                                         
+                                        c.setNumero(Integer.parseInt(data.get(i)[1]));
+                                        c.setNomCarreau(data.get(i)[2]);
+                                        c.setPrix(Integer.parseInt(data.get(i)[3]));
+                                        
+                                        carreaux.add(c);
 				}
 				else if(caseType.compareTo("AU") == 0){
 					System.out.println("Case Autre :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                                        
+                                        AutreCarreau ac = new AutreCarreau();
+                                        
+                                        ac.setNumero(Integer.parseInt(data.get(i)[1]));
+                                        ac.setNomCarreau(data.get(i)[2]);
+                                        
+                                        carreaux.add(ac);
 				}
 				else
 					System.err.println("[buildGamePleateau()] : Invalid Data type");
