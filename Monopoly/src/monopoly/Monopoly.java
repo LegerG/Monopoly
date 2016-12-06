@@ -22,8 +22,7 @@ public class Monopoly {
         IHM ihm = new IHM();
         Controleur controleur = new Controleur(ihm);
         
-        
-        
+        ihm.addObserver(controleur);
         
         
     }

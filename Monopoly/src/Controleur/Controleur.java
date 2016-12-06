@@ -15,9 +15,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
 
-public class Controleur {
+public class Controleur implements Observer{
 
 	private IHM ihm;
         private ArrayList<Carreau> carreaux = new ArrayList<>();
@@ -30,8 +32,8 @@ public class Controleur {
         System.out.println(carreaux.size());
     }
                
-        
-    public void update() {
+    @Override    
+    public void update(Observable o, Object arg) {
             // TODO - implement Controleur.update
             throw new UnsupportedOperationException();
     }
@@ -118,6 +120,10 @@ public class Controleur {
 		
 		return data;
 	}
+
+    
+
+    
 }
     
     

@@ -1,11 +1,13 @@
 package Ui;
 
 import Controleur.Controleur;
+import java.util.Observable;
 
-public class IHM {
+public class IHM extends Observable{
     
     public IHM() {
         //Constructeur
+        
     }
 
     
