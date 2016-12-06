@@ -60,6 +60,12 @@ public class Joueur {
             this.positionCourante = ca;
     }
 
+    public String getNomJoueur() {
+        return nomJoueur;
+    }
+    
+    
+
     /**
      * 
      * @param propri

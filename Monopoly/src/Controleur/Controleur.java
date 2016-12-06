@@ -44,12 +44,12 @@ public class Controleur implements Observer{
     
     public void initPartie() {
         ArrayList<String> listJoueur = ihm.getJoueurs();
-        System.out.println("ddd");
         for (String s : listJoueur) {
             Joueur j = new Joueur(s);
             j.setPositionCourante(DEPART);
             joueurs.add(j);
         }
+        
     }
     
     public void CreerPlateau(String dataFilename){

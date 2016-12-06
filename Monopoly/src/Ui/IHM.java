@@ -28,6 +28,7 @@ public class IHM extends Observable{
         int nbJoueur = 0;
         
         System.out.println("Combien êtes-vous pour jouer ? (min : 2 / max : 6)");
+
         nbJoueur = sc.nextInt(); 
         
         
@@ -38,15 +39,14 @@ public class IHM extends Observable{
         }
         
         
-        int i = 0;
-        while(i < nbJoueur) {
+        
+        for(int i = 0; i < nbJoueur; i++) {
             System.out.println("Quel est votre nom ? ");
-            String nomJoueur = sc.nextLine();
+            String nomJoueur = sc.next();
             nomJoueurs.add(nomJoueur);
-            i++;
+            
             
         }
-        System.out.println("ddd");
         return nomJoueurs;
     }
 
