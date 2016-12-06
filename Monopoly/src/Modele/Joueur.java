@@ -3,23 +3,21 @@ package Modele;
 
 
 import java.util.ArrayList;
-import java.util.Collection; //Tranformer en truc plus cool
+import java.util.Collection; 
 
 public class Joueur {
 
-    private ArrayList<Compagnie> compagnies;
-    private ArrayList<ProprieteAConstruire> proprietesAConstruires;
-    private ArrayList<Gare> gares;
+    private ArrayList<Compagnie> compagnies = new ArrayList<>();
+    private ArrayList<ProprieteAConstruire> proprietesAConstruires = new ArrayList<>();
+    private ArrayList<Gare> gares = new ArrayList<>();
     private Carreau positionCourante;
     private String nomJoueur;
-    private int cash = 1500;
+    private int cash;
 
-    public Joueur(ArrayList<Compagnie> compagnies, ArrayList<ProprieteAConstruire> proprietesAConstruires, ArrayList<Gare> gares, Carreau DEPART, String nomJoueur) {
-        this.compagnies = new ArrayList<>();
-        this.proprietesAConstruires = new ArrayList<>();
-        this.gares = new ArrayList<>();
-        this.positionCourante = DEPART;
+    public Joueur(String nomJoueur) {
+        this.positionCourante = null;
         this.nomJoueur = nomJoueur;
+        this.cash = 1500;
     }
 
     

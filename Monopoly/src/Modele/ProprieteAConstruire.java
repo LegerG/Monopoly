@@ -5,6 +5,7 @@ import java.util.*;
 public class ProprieteAConstruire extends Propriete {
 
 	private Groupe groupe;
+        
 
 	public int calculLoyer() {
 		// TODO - implement ProprieteAConstruire.calculLoyer
@@ -38,5 +39,7 @@ public class ProprieteAConstruire extends Propriete {
             this.groupe = groupe;
         }
         
-        
+        public CouleurPropriete getCouleur() {
+            return groupe.getCouleur();
+        }
 }
