@@ -116,5 +116,6 @@ public class Joueur {
             // TODO - implement Joueur.getNbCompagnie
             throw new UnsupportedOperationException();
     }
+    
 
 }

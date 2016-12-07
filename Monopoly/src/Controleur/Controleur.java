@@ -27,6 +27,8 @@ public class Controleur implements Observer{
     private ArrayList<Groupe> groupes = new ArrayList<>();
     private ArrayList<Joueur> joueurs= new ArrayList<>();
     private final Carreau DEPART;
+    private Carreau nouveauCarreau;
+    private int[] valDes;
         
 
     public Controleur(IHM ihm) {
@@ -38,8 +40,7 @@ public class Controleur implements Observer{
                
     @Override    
     public void update(Observable o, Object arg) {
-            // TODO - implement Controleur.update
-            throw new UnsupportedOperationException();
+            
     }
     
     public void initPartie() {
@@ -50,7 +51,31 @@ public class Controleur implements Observer{
             joueurs.add(j);
         }
         
+        
+        
     }
+
+    public void avancer(Joueur jCourant, int[] valDes) {
+        Carreau ancienCarreau = jCourant.getPositionCourante();
+        int numAncienCarreau = ancienCarreau.getNumero();
+        int numNouvCarreau = numAncienCarreau + valDes[0] + valDes[1] % 40;
+        Carreau nouveauCarreau = carreaux.get(numNouvCarreau);
+        jCourant.setPositionCourante(nouveauCarreau);
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     public void CreerPlateau(String dataFilename){
             buildGamePlateau(dataFilename);
