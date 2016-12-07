@@ -11,6 +11,7 @@ import Modele.Propriete;
 import Modele.ProprieteAConstruire;
 import Ui.IHM;
 import Ui.Utilitaire;
+import static Ui.Utilitaire.lancerDés;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -29,7 +30,7 @@ public class Controleur implements Observer{
     private final Carreau DEPART;
     private Carreau nouveauCarreau;
     private int[] valDes;
-        
+    private Joueur jCourant;
 
     public Controleur(IHM ihm) {
         this.ihm = ihm;
@@ -50,31 +51,49 @@ public class Controleur implements Observer{
             j.setPositionCourante(DEPART);
             joueurs.add(j);
         }
-        
-        
-        
+        jCourant = joueurs.get(0);
+        jouer();
     }
+    
+    public void jouer() {
+        
+        while (joueurs.size() != 0) {
+            jouerTour();
+            jCourant = jSuivant();
+        }
+    }
+    
+    public void jouerTour() {
+        valDes = lancerDés();
+        avancer(jCourant, valDes);
+        if (aFaitUnDouble()) {
+            System.out.println("DOUBLE !!!!!!!!!!!!!!!!!!!!");
+                jouerTour(); // Le joueur rejoue si il a fait un double
+            }
+    }
+    
 
     public void avancer(Joueur jCourant, int[] valDes) {
+        System.out.println("Valeur des dés : " + valDes[0] + "   " + valDes[1]);
+        
         Carreau ancienCarreau = jCourant.getPositionCourante();
         int numAncienCarreau = ancienCarreau.getNumero();
-        int numNouvCarreau = numAncienCarreau + valDes[0] + valDes[1] % 40;
+        int numNouvCarreau = (numAncienCarreau - 1 + valDes[0] + valDes[1]) % 40;
         Carreau nouveauCarreau = carreaux.get(numNouvCarreau);
         jCourant.setPositionCourante(nouveauCarreau);
         
+        System.out.println(jCourant.getNomJoueur() + " est a la position " + jCourant.getPositionCourante().getNumero());
         
     }
     
+    public Joueur jSuivant() {
+        return joueurs.get((joueurs.indexOf(jCourant) + 1) % joueurs.size());
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public boolean aFaitUnDouble() {
+        return valDes[0] == valDes[1];
+    }
+
     
     
     public void CreerPlateau(String dataFilename){

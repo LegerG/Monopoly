@@ -16,8 +16,7 @@ public class IHM extends Observable{
     
 
     private void notifierObservateurs() {
-            // TODO - implement IHM.notifierObservateurs
-            throw new UnsupportedOperationException();
+            
     }
     
     public ArrayList<String> getJoueurs() {

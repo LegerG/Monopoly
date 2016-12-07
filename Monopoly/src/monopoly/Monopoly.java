@@ -25,6 +25,7 @@ public class Monopoly {
         ihm.addObserver(controleur);
         
         
+        
     }
     
 }
