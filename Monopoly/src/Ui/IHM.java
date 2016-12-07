@@ -2,6 +2,7 @@ package Ui;
 
 import Controleur.Controleur;
 import Modele.Joueur;
+import static Ui.Utilitaire.lancerDés;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Scanner;
@@ -11,13 +12,18 @@ public class IHM extends Observable{
     public IHM() {
         //Constructeur
         
+        
     }
 
+    public void jouerTour(Joueur jCourant) {
+        System.out.println("fffff");
+        setChanged();
+        notifyObservers(Commande.LANCER_DES);
+        clearChanged();
+        System.out.println("ffff");
+                
+    }
     
-
-    private void notifierObservateurs() {
-            
-    }
     
     public ArrayList<String> getJoueurs() {
         
@@ -48,5 +54,8 @@ public class IHM extends Observable{
         }
         return nomJoueurs;
     }
+
+
+    
 
 }

@@ -9,6 +9,7 @@ import Modele.Groupe;
 import Modele.Joueur;
 import Modele.Propriete;
 import Modele.ProprieteAConstruire;
+import Ui.Commande;
 import Ui.IHM;
 import Ui.Utilitaire;
 import static Ui.Utilitaire.lancerDés;
@@ -41,6 +42,18 @@ public class Controleur implements Observer{
                
     @Override    
     public void update(Observable o, Object arg) {
+        if (arg == Commande.LANCER_DES) {
+            valDes = lancerDés();
+            avancer(jCourant, valDes);
+            if (aFaitUnDouble()) {
+            System.out.println("DOUBLE !!!!!!!!!!!!!!!!!!!!");
+                ihm.jouerTour(jCourant); // Le joueur rejoue si il a fait un double
+            }
+            
+        }
+        else if (arg == Commande.ACHETER) {
+            
+        }
             
     }
     
@@ -51,27 +64,17 @@ public class Controleur implements Observer{
             j.setPositionCourante(DEPART);
             joueurs.add(j);
         }
-        jCourant = joueurs.get(0);
+        jCourant = joueurs.get(0);        
         jouer();
     }
     
     public void jouer() {
         
         while (joueurs.size() != 0) {
-            jouerTour();
+            ihm.jouerTour(jCourant);
             jCourant = jSuivant();
         }
     }
-    
-    public void jouerTour() {
-        valDes = lancerDés();
-        avancer(jCourant, valDes);
-        if (aFaitUnDouble()) {
-            System.out.println("DOUBLE !!!!!!!!!!!!!!!!!!!!");
-                jouerTour(); // Le joueur rejoue si il a fait un double
-            }
-    }
-    
 
     public void avancer(Joueur jCourant, int[] valDes) {
         System.out.println("Valeur des dés : " + valDes[0] + "   " + valDes[1]);
