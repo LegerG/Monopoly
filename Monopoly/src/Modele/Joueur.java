@@ -31,28 +31,16 @@ public class Joueur {
        return nbProprietesGroupe; 
     }
 
- 
     
-    
-    
-    
-    /**
-     * 
-     * @param l
-     */
-    public void payerLoyer(int l) {
-            // TODO - implement Joueur.payerLoyer
-            throw new UnsupportedOperationException();
+    public void payerLoyer(int loyer) {
+            this.subCash(loyer);
     }
 
-    /**
-     * 
-     * @param l
-     */
-    public void recevoirLoyer(int l) {
-            // TODO - implement Joueur.recevoirLoyer
-            throw new UnsupportedOperationException();
+    
+    public void recevoirLoyer(int loyer) {
+        this.setCash(this.getCash()+loyer);
     }
+    
 
     public int getCash() {
             return this.cash;
@@ -66,10 +54,6 @@ public class Joueur {
             return this.positionCourante;
     }
 
-    /**
-     * 
-     * @param ca
-     */
     public void setPositionCourante(Carreau ca) {
             this.positionCourante = ca;
     }
@@ -79,20 +63,8 @@ public class Joueur {
     }
 
 
-    
-
-    /**
-     * 
-     * @param propri
-     */
-    public void addPropriete(Propriete propri) {
-            // TODO - implement Joueur.addPropriete
-            throw new UnsupportedOperationException();
-    }
-
     public int getNbGare() {
-            // TODO - implement Joueur.getNbGare
-            throw new UnsupportedOperationException();
+        return gares.size();
     }
 
     
@@ -100,11 +72,8 @@ public class Joueur {
         this.setCash(this.getCash()-prix);
     }
 
-    /**
-     * 
-     * @param positionCourante
-     */
-    public void addPropriete(Carreau positionCourante) {            // A FINIR
+    
+    public void addPropriete(Carreau positionCourante) {           
             if (positionCourante instanceof ProprieteAConstruire){
                 this.proprietesAConstruires.add((ProprieteAConstruire)positionCourante);
             } else if(positionCourante instanceof Compagnie){
@@ -116,23 +85,10 @@ public class Joueur {
     }
     }
 
-    public int getPrix() {
-            // TODO - implement Joueur.getPrix
-            throw new UnsupportedOperationException();
-    }
 
-    /**
-     * 
-     * @param g
-     */
-    public int getnbPropGroupe(Groupe g) {
-            // TODO - implement Joueur.getnbPropGroupe
-            throw new UnsupportedOperationException();
-    }
 
     public int getNbCompagnie() {
-            // TODO - implement Joueur.getNbCompagnie
-            throw new UnsupportedOperationException();
+           return compagnies.size();
     }
     
 

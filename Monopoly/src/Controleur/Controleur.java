@@ -126,7 +126,7 @@ public class Controleur implements Observer{
                     //Ajouter Couleur/groupe p.setGroupe(CouleurPropriete.valueOf(data.get(i)[4]));
                     CouleurPropriete c = CouleurPropriete.valueOf(data.get(i)[3]);
                     
-                    Groupe g = getGroupe(c);
+                    Groupe g = setGroupe(c);
                     g.setCouleur(c);
                     p.setGroupe(g);
                     g.addPropriete(p);
@@ -193,7 +193,7 @@ public class Controleur implements Observer{
     }
     
     
-    public Groupe getGroupe(CouleurPropriete c) {
+    public Groupe setGroupe(CouleurPropriete c) {
     int i = 0;
     Groupe g;
 

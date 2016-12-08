@@ -29,18 +29,22 @@ public abstract class Propriete extends Carreau {
 	public Joueur getProprietaire() {
 		return this.proprietaire;
 	}
+        
+        public void setProprietaire(Joueur jCourant) {
+		this.proprietaire = jCourant;
+	}
 
 	public int getPrix() {
 		return this.prix;
 	}
-
-	public void setProprietaire(Joueur jCourant) {
-		this.proprietaire = jCourant;
-	}
-
+        
         public void setPrix(int prix) {
             this.prix = prix;
         }
+
+	
+
+      
         
         
         
