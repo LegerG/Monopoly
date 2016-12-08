@@ -105,25 +105,17 @@ public class Joueur {
      */
     public void addPropriete(Carreau positionCourante) {   
         // A FINIR
-            if (positionCourante instanceof ProprieteAConstruire){
-                this.proprietesAConstruires.add((ProprieteAConstruire)positionCourante);
-            } 
-            else if(positionCourante instanceof Compagnie){
-                this.compagnies.add((Compagnie)positionCourante);
-            } 
-            else if(positionCourante instanceof Gare){ 
-                this.gares.add((Gare)positionCourante);
-            }
-    }
+//        if (positionCourante instanceof ProprieteAConstruire){
+//            this.proprietesAConstruires.add((ProprieteAConstruire)positionCourante);
+//        } 
+//        else if(positionCourante instanceof Compagnie){
+//            this.compagnies.add((Compagnie)positionCourante);
+//        } 
+//        else if(positionCourante instanceof Gare){ 
+//            this.gares.add((Gare)positionCourante);
+//        }
+        
 
-
-    /**
-     * 
-     * @param g
-     */
-    public int getnbPropGroupe(Groupe g) {
-            // TODO - implement Joueur.getnbPropGroupe
-            throw new UnsupportedOperationException();
     }
 
     public int getNbCompagnie() {

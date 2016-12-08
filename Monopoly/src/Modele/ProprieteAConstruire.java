@@ -11,11 +11,12 @@ public class ProprieteAConstruire extends Propriete {
     public int calculLoyer(int[] valDes) {
         int nb = this.groupe.getNbProprieteGroupe();
         int nbProprieteGroupe = this.getProprietaire().getNbProprietesGroupe(this.groupe);
-            int loyer = this.getLoyerBase();
-            if(nb==nbProprieteGroupe){
-                loyer = loyer * 2 ;
-            }
-            return loyer;
+        int loyer = this.getLoyerBase();
+        
+        if(nb==nbProprieteGroupe){
+            loyer = loyer * 2 ;
+        }
+        return loyer;
     }
 
     public Groupe getGroupe() {
