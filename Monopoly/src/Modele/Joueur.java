@@ -31,28 +31,16 @@ public class Joueur {
        return nbProprietesGroupe; 
     }
 
- 
     
-    
-    
-    
-    /**
-     * 
-     * @param l
-     */
-    public void payerLoyer(int l) {
-            // TODO - implement Joueur.payerLoyer
-            throw new UnsupportedOperationException();
+    public void payerLoyer(int loyer) {
+            this.subCash(loyer);
     }
 
-    /**
-     * 
-     * @param l
-     */
-    public void recevoirLoyer(int l) {
-            // TODO - implement Joueur.recevoirLoyer
-            throw new UnsupportedOperationException();
+    
+    public void recevoirLoyer(int loyer) {
+        this.setCash(this.getCash()+loyer);
     }
+    
 
     public int getCash() {
             return this.cash;
@@ -66,10 +54,6 @@ public class Joueur {
             return this.positionCourante;
     }
 
-    /**
-     * 
-     * @param ca
-     */
     public void setPositionCourante(Carreau ca) {
             this.positionCourante = ca;
     }
@@ -79,19 +63,9 @@ public class Joueur {
     }
 
 
-    
-
-    /**
-     * 
-     * @param propri
-     */
-    public void addPropriete(Propriete propri) {
-            // TODO - implement Joueur.addPropriete
-            throw new UnsupportedOperationException();
-    }
-
     public int getNbGare() {
-            return gares.size();
+        return gares.size();
+
     }
 
     
@@ -99,24 +73,21 @@ public class Joueur {
         this.setCash(this.getCash()-prix);
     }
 
-    /**
-     * 
-     * @param positionCourante
-     */
-    public void addPropriete(Carreau positionCourante) {   
-        // A FINIR
-//        if (positionCourante instanceof ProprieteAConstruire){
-//            this.proprietesAConstruires.add((ProprieteAConstruire)positionCourante);
-//        } 
-//        else if(positionCourante instanceof Compagnie){
-//            this.compagnies.add((Compagnie)positionCourante);
-//        } 
-//        else if(positionCourante instanceof Gare){ 
-//            this.gares.add((Gare)positionCourante);
-//        }
-        
 
+    
+    public void addPropriete(Carreau positionCourante) {           
+            if (positionCourante instanceof ProprieteAConstruire){
+                this.proprietesAConstruires.add((ProprieteAConstruire)positionCourante);
+            } else if(positionCourante instanceof Compagnie){
+                this.compagnies.add((Compagnie)positionCourante);
+            } else if(positionCourante instanceof Gare){ 
+                this.gares.add((Gare)positionCourante);
+            }
+           
     }
+    
+
+
 
     public int getNbCompagnie() {
            return compagnies.size();
