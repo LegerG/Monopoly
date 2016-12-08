@@ -7,6 +7,7 @@ public abstract class Propriete extends Carreau {
 
 
     public Propriete() {
+        super();
         this.proprietaire = null;
         this.prix = -1;
     }

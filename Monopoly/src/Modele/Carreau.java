@@ -1,11 +1,13 @@
 package Modele;
 
 public abstract class Carreau {
-
-	private int numero;
-	private String nomCarreau;
+    
+    private String typeCarreau;    
+    private int numero;
+    private String nomCarreau;
 
     public Carreau() {
+        this.typeCarreau = null;
         this.numero = -1;
         this.nomCarreau = null;
     }
@@ -25,6 +27,15 @@ public abstract class Carreau {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-        
+
+    public String getTypeCarreau() {
+        return typeCarreau;
+    }
+
+    public void setTypeCarreau(String typeCarreau) {
+        this.typeCarreau = typeCarreau;
+    }
+    
+    
         
 }

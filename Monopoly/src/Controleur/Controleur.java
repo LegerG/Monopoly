@@ -47,7 +47,10 @@ public class Controleur implements Observer{
         if (arg == Commande.LANCER_DES) {
             valDes = lancerDés();
             avancer(jCourant, valDes);
-            jCourant.getPositionCourante();
+            Carreau caseJoueur = jCourant.getPositionCourante();
+            int numcaseJoueur = caseJoueur.getNumero();
+            
+            
             
             if (aFaitUnDouble()) {
             System.out.println("DOUBLE !!!!!!!!!!!!!!!!!!!!");
@@ -122,7 +125,8 @@ public class Controleur implements Observer{
                 if(caseType.compareTo("P") == 0){
                     System.out.println("Propriété à Construire :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     ProprieteAConstruire p = new ProprieteAConstruire();
-
+                    
+                    p.setTypeCarreau(data.get(i)[0]);
                     p.setNumero(Integer.parseInt(data.get(i)[1]));
                     p.setNomCarreau(data.get(i)[2]);
                     p.setPrix(Integer.parseInt(data.get(i)[4]));
@@ -141,7 +145,8 @@ public class Controleur implements Observer{
                 else if(caseType.compareTo("G") == 0){
                     System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     Gare g = new Gare();
-
+                    
+                    g.setTypeCarreau(data.get(i)[0]);
                     g.setNumero(Integer.parseInt(data.get(i)[1]));
                     g.setNomCarreau(data.get(i)[2]);
                     g.setPrix(Integer.parseInt(data.get(i)[3]));
@@ -151,7 +156,8 @@ public class Controleur implements Observer{
                 else if(caseType.compareTo("C") == 0){
                     System.out.println("Compagnie :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     Compagnie c = new Compagnie();
-
+                    
+                    c.setTypeCarreau(data.get(i)[0]);
                     c.setNumero(Integer.parseInt(data.get(i)[1]));
                     c.setNomCarreau(data.get(i)[2]);
                     c.setPrix(Integer.parseInt(data.get(i)[3])); 
@@ -160,9 +166,9 @@ public class Controleur implements Observer{
                 }
                 else if(caseType.compareTo("AU") == 0){
                     System.out.println("Case Autre :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-
                     AutreCarreau ac = new AutreCarreau();
-
+                    
+                    ac.setTypeCarreau(data.get(i)[0]);
                     ac.setNumero(Integer.parseInt(data.get(i)[1]));
                     ac.setNomCarreau(data.get(i)[2]);
 
@@ -217,7 +223,32 @@ public class Controleur implements Observer{
     return g;
         
     }
-
+    
+    public String recupererTypePosition(int numeroPositionCourante) throws IOException{
+        
+    
+        String dataFilename = "src/Data/data.txt";
+        String typePositionCourante = null;
+        
+     try {
+        ArrayList<String[]> data = readDataFile(dataFilename, ",");
+        
+        
+        
+        for(int i=0; i<data.size(); ++i){
+            if(Integer.parseInt(data.get(i)[1]) == numeroPositionCourante){
+                
+            }
+        }
+   
+             
+       
+     }
+     catch(FileNotFoundException e){
+                System.err.println("[buildGamePlateau()] : File is not found!");
+     }
+         return typePositionCourante;
+    }
     
 }
     
