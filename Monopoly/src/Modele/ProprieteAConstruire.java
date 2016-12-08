@@ -1,6 +1,6 @@
 package Modele;
 
-import java.util.*;
+
 
 public class ProprieteAConstruire extends Propriete {
 
@@ -9,7 +9,7 @@ public class ProprieteAConstruire extends Propriete {
 
     @Override
     public int calculLoyer(int[] valDes) {
-        int nb = this.groupe.getSize();
+        int nb = this.groupe.getNbProprieteGroupe();
         int nbProprieteGroupe = this.getProprietaire().getNbProprietesGroupe(this.groupe);
             int loyer = this.getLoyerBase();
             if(nb==nbProprieteGroupe){

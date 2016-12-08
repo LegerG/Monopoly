@@ -4,8 +4,10 @@ public class Compagnie extends Propriete {
 
     @Override
     public int calculLoyer(int[] valDes) {
+        
         int nbCompagnie = this.getProprietaire().getNbCompagnie();
         int loyerFinal = 0;
+        
         if (nbCompagnie==1){
             loyerFinal = 4*(valDes[0]+valDes[1]);
         } 

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Groupe {
 
-	private ArrayList<ProprieteAConstruire> proprietes = new ArrayList<>();
-	private CouleurPropriete couleur;
+    private ArrayList<ProprieteAConstruire> proprietes = new ArrayList<>();
+    private CouleurPropriete couleur;
 
     public Groupe( CouleurPropriete couleur) {
         this.couleur = couleur;
@@ -13,9 +13,9 @@ public class Groupe {
         
         
 
-	public int getSize() {
-		return this.proprietes.size();
-	}
+    public int getNbProprieteGroupe() {
+            return this.proprietes.size();
+    }
 
     public CouleurPropriete getCouleur() {
         return couleur;
