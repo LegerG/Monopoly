@@ -90,7 +90,9 @@ public class IHM extends Observable{
 
     }
     
+    public void joueurSupprime(Joueur j){
+        System.out.println("Le joueur : " + j.getNomJoueur() + " est en faillite, il est donc retiré du jeu.");
+    }
     
-    
-
 }
+    

@@ -98,7 +98,12 @@ public class Controleur implements Observer{
         
         while (joueurs.size() != 0) {
             ihm.jouerTour(jCourant);
+            if (faillite(jCourant)){
+                supprimerJoueur(jCourant);
+                ihm.joueurSupprime(jCourant);
+            }
             jCourant = jSuivant();
+            
         }
     }
 
@@ -241,6 +246,23 @@ public class Controleur implements Observer{
 
     return g;
         
+    }
+    
+    public boolean faillite(Joueur j){
+        return j.getCash()<=0;
+    }
+    
+    public void supprimerJoueur(Joueur j){
+        for (Gare g : j.getGares()){
+            g.setProprietaire(null);
+        }
+        for (Compagnie c : j.getCompagnies()){
+            c.setProprietaire(null);
+        }
+        for (ProprieteAConstruire p : j.getProprietesAConstruires()){
+            p.setProprietaire(null);
+        }
+        joueurs.remove(j);
     }
     
 }
