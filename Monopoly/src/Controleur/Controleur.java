@@ -96,7 +96,7 @@ public class Controleur implements Observer{
     
     public void jouer() {
         
-        while (joueurs.size() != 0) {
+        while (joueurs.size() != 1) {
             ihm.jouerTour(jCourant);
             if (faillite(jCourant)){
                 supprimerJoueur(jCourant);
@@ -105,6 +105,7 @@ public class Controleur implements Observer{
             jCourant = jSuivant();
             
         }
+        ihm.vainqueur(joueurs.get(0));
     }
 
     public void avancer(Joueur jCourant, int[] valDes) {

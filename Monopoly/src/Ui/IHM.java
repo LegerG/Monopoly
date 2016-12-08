@@ -94,5 +94,8 @@ public class IHM extends Observable{
         System.out.println("Le joueur : " + j.getNomJoueur() + " est en faillite, il est donc retiré du jeu.");
     }
     
-}
+    public void vainqueur(Joueur j) {
+        System.out.println("Le joueur : " + j.getNomJoueur() + " a gangé cette partie de Monopoly." );
+    }
+ }
     
