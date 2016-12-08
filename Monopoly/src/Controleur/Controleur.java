@@ -174,7 +174,7 @@ public class Controleur implements Observer{
 
                     carreaux.add(ac);
                 }
-                else
+                else 
                     System.err.println("[buildGamePleateau()] : Invalid Data type");
             }
 
@@ -189,8 +189,8 @@ public class Controleur implements Observer{
         System.out.println(groupes.size());
     }
 
-    private ArrayList<String[]> readDataFile(String filename, String token) throws FileNotFoundException, IOException
-    {
+    private ArrayList<String[]> readDataFile(String filename, String token) throws FileNotFoundException, IOException {
+        
             ArrayList<String[]> data = new ArrayList<String[]>();
 
             BufferedReader reader  = new BufferedReader(new FileReader(filename));
@@ -222,32 +222,6 @@ public class Controleur implements Observer{
 
     return g;
         
-    }
-    
-    public String recupererTypePosition(int numeroPositionCourante) throws IOException{
-        
-    
-        String dataFilename = "src/Data/data.txt";
-        String typePositionCourante = null;
-        
-     try {
-        ArrayList<String[]> data = readDataFile(dataFilename, ",");
-        
-        
-        
-        for(int i=0; i<data.size(); ++i){
-            if(Integer.parseInt(data.get(i)[1]) == numeroPositionCourante){
-                
-            }
-        }
-   
-             
-       
-     }
-     catch(FileNotFoundException e){
-                System.err.println("[buildGamePlateau()] : File is not found!");
-     }
-         return typePositionCourante;
     }
     
 }

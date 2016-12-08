@@ -7,6 +7,12 @@ public class ProprieteAConstruire extends Propriete {
     private Groupe groupe;
     private int loyerBase;
 
+    public ProprieteAConstruire() {
+        super();
+    }
+    
+    
+
     @Override
     public int calculLoyer(int[] valDes) {
         int nb = this.groupe.getNbProprieteGroupe();

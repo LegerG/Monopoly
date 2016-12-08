@@ -2,6 +2,12 @@ package Modele;
 
 public class Compagnie extends Propriete {
 
+    public Compagnie() {
+        super();
+    }
+    
+    
+
     @Override
     public int calculLoyer(int[] valDes) {
         
