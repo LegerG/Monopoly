@@ -5,7 +5,7 @@ public class Gare extends Propriete {
      private int loyerBase = 25;
      
     public Gare() {
-      
+        super();
     }
 
     
@@ -26,5 +26,7 @@ public class Gare extends Propriete {
         return nbGare * loyerBase;
             
     }
+
+  
 
 }

@@ -3,7 +3,7 @@ package Modele;
 
 
 import java.util.ArrayList;
-import java.util.Collection; 
+
 
 public class Joueur {
 
@@ -65,6 +65,7 @@ public class Joueur {
 
     public int getNbGare() {
         return gares.size();
+
     }
 
     
@@ -72,24 +73,27 @@ public class Joueur {
         this.setCash(this.getCash()-prix);
     }
 
+
     
     public void addPropriete(Carreau positionCourante) {           
             if (positionCourante instanceof ProprieteAConstruire){
                 this.proprietesAConstruires.add((ProprieteAConstruire)positionCourante);
             } else if(positionCourante instanceof Compagnie){
                 this.compagnies.add((Compagnie)positionCourante);
-            } else if(positionCourante instanceof Gare){ {
+            } else if(positionCourante instanceof Gare){ 
                 this.gares.add((Gare)positionCourante);
             }
            
     }
-    }
+    
 
 
 
     public int getNbCompagnie() {
            return compagnies.size();
     }
-    
 
+
+    
+    
 }

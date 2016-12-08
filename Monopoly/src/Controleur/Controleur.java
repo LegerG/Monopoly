@@ -36,8 +36,10 @@ public class Controleur implements Observer{
     public Controleur(IHM ihm) {
         this.ihm = ihm;
         CreerPlateau("src/Data/data.txt");
-        this.DEPART = carreaux.get(0);
+        this.DEPART = carreaux.get(0); 
+        ihm.addObserver(this);
         this.initPartie();
+
     }
                
     @Override    
@@ -45,6 +47,41 @@ public class Controleur implements Observer{
         if (arg == Commande.LANCER_DES) {
             valDes = lancerDés();
             avancer(jCourant, valDes);
+            Carreau caseJoueur = jCourant.getPositionCourante();
+            int numcaseJoueur = caseJoueur.getNumero();
+            
+            if (null != caseJoueur.getTypeCarreau()) 
+                switch (caseJoueur.getTypeCarreau()) {
+                    case "P":
+                        ProprieteAConstruire p = (ProprieteAConstruire) jCourant.getPositionCourante();
+                        if (p.getProprietaire() == null) {
+                            ihm.acheter();
+                        }
+                        else {
+                            if (p.getProprietaire() != jCourant) {
+                                
+                            }
+                            else {
+                                
+                            }
+                        }
+                        break;
+                    case "G":
+
+                        break;
+                    case "C":
+
+                        break;
+                    case "AU":
+
+                        break;
+                    default:
+                        System.err.println("ERROR !");
+                        break;
+                }
+            
+            
+            
             if (aFaitUnDouble()) {
             System.out.println("DOUBLE !!!!!!!!!!!!!!!!!!!!");
                 ihm.jouerTour(jCourant); // Le joueur rejoue si il a fait un double
@@ -86,6 +123,7 @@ public class Controleur implements Observer{
         jCourant.setPositionCourante(nouveauCarreau);
         
         System.out.println(jCourant.getNomJoueur() + " est a la position " + jCourant.getPositionCourante().getNumero());
+        System.out.println("");
         
     }
     
@@ -115,9 +153,10 @@ public class Controleur implements Observer{
                 String caseType = data.get(i)[0];
 
                 if(caseType.compareTo("P") == 0){
-                    System.out.println("Propriété à Construire :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                    System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     ProprieteAConstruire p = new ProprieteAConstruire();
-
+                    
+                    p.setTypeCarreau(data.get(i)[0]);
                     p.setNumero(Integer.parseInt(data.get(i)[1]));
                     p.setNomCarreau(data.get(i)[2]);
                     p.setPrix(Integer.parseInt(data.get(i)[4]));
@@ -134,9 +173,10 @@ public class Controleur implements Observer{
                     carreaux.add(p); 
                 }
                 else if(caseType.compareTo("G") == 0){
-                    System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                    System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t"  + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     Gare g = new Gare();
-
+                    
+                    g.setTypeCarreau(data.get(i)[0]);
                     g.setNumero(Integer.parseInt(data.get(i)[1]));
                     g.setNomCarreau(data.get(i)[2]);
                     g.setPrix(Integer.parseInt(data.get(i)[3]));
@@ -144,9 +184,10 @@ public class Controleur implements Observer{
                     carreaux.add(g);
                 }
                 else if(caseType.compareTo("C") == 0){
-                    System.out.println("Compagnie :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                    System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t"  + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     Compagnie c = new Compagnie();
-
+                    
+                    c.setTypeCarreau(data.get(i)[0]);
                     c.setNumero(Integer.parseInt(data.get(i)[1]));
                     c.setNomCarreau(data.get(i)[2]);
                     c.setPrix(Integer.parseInt(data.get(i)[3])); 
@@ -154,16 +195,16 @@ public class Controleur implements Observer{
                     carreaux.add(c);
                 }
                 else if(caseType.compareTo("AU") == 0){
-                    System.out.println("Case Autre :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-
+                    System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t"  + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     AutreCarreau ac = new AutreCarreau();
-
+                    
+                    ac.setTypeCarreau(data.get(i)[0]);
                     ac.setNumero(Integer.parseInt(data.get(i)[1]));
                     ac.setNomCarreau(data.get(i)[2]);
 
                     carreaux.add(ac);
                 }
-                else
+                else 
                     System.err.println("[buildGamePleateau()] : Invalid Data type");
             }
 
@@ -178,8 +219,8 @@ public class Controleur implements Observer{
         System.out.println(groupes.size());
     }
 
-    private ArrayList<String[]> readDataFile(String filename, String token) throws FileNotFoundException, IOException
-    {
+    private ArrayList<String[]> readDataFile(String filename, String token) throws FileNotFoundException, IOException {
+        
             ArrayList<String[]> data = new ArrayList<String[]>();
 
             BufferedReader reader  = new BufferedReader(new FileReader(filename));
@@ -212,7 +253,6 @@ public class Controleur implements Observer{
     return g;
         
     }
-
     
 }
     
