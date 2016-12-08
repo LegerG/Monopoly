@@ -123,7 +123,7 @@ public class Controleur implements Observer{
                 String caseType = data.get(i)[0];
 
                 if(caseType.compareTo("P") == 0){
-                    System.out.println("Propriété à Construire :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                    System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     ProprieteAConstruire p = new ProprieteAConstruire();
                     
                     p.setTypeCarreau(data.get(i)[0]);
@@ -143,7 +143,7 @@ public class Controleur implements Observer{
                     carreaux.add(p); 
                 }
                 else if(caseType.compareTo("G") == 0){
-                    System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                    System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t"  + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     Gare g = new Gare();
                     
                     g.setTypeCarreau(data.get(i)[0]);
@@ -154,7 +154,7 @@ public class Controleur implements Observer{
                     carreaux.add(g);
                 }
                 else if(caseType.compareTo("C") == 0){
-                    System.out.println("Compagnie :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                    System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t"  + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     Compagnie c = new Compagnie();
                     
                     c.setTypeCarreau(data.get(i)[0]);
@@ -165,7 +165,7 @@ public class Controleur implements Observer{
                     carreaux.add(c);
                 }
                 else if(caseType.compareTo("AU") == 0){
-                    System.out.println("Case Autre :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                    System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t"  + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     AutreCarreau ac = new AutreCarreau();
                     
                     ac.setTypeCarreau(data.get(i)[0]);
