@@ -104,16 +104,17 @@ public class Joueur {
      * 
      * @param positionCourante
      */
-    public void addPropriete(Carreau positionCourante) {            // A FINIR
+    public void addPropriete(Carreau positionCourante) {   
+        // A FINIR
             if (positionCourante instanceof ProprieteAConstruire){
                 this.proprietesAConstruires.add((ProprieteAConstruire)positionCourante);
-            } else if(positionCourante instanceof Compagnie){
+            } 
+            else if(positionCourante instanceof Compagnie){
                 this.compagnies.add((Compagnie)positionCourante);
-            } else if(positionCourante instanceof Gare){ {
+            } 
+            else if(positionCourante instanceof Gare){ 
                 this.gares.add((Gare)positionCourante);
             }
-           
-    }
     }
 
     public int getPrix() {
@@ -134,6 +135,8 @@ public class Joueur {
             // TODO - implement Joueur.getNbCompagnie
             throw new UnsupportedOperationException();
     }
-    
 
+
+    
+    
 }

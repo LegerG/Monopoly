@@ -12,7 +12,7 @@ public abstract class Propriete extends Carreau {
         }
 
         
-        
+       
         
         
         public abstract int calculLoyer(int[] valDes);

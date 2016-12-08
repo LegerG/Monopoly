@@ -17,13 +17,10 @@ public class IHM extends Observable{
     }
 
     public void jouerTour(Joueur jCourant) {
-        System.out.println("fffff");
         System.out.println(jCourant.getNomJoueur());
         setChanged();
         notifyObservers(Commande.LANCER_DES);
         clearChanged();
-        
-        System.out.println("ffff");
                 
     }
     

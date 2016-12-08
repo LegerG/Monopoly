@@ -36,8 +36,10 @@ public class Controleur implements Observer{
     public Controleur(IHM ihm) {
         this.ihm = ihm;
         CreerPlateau("src/Data/data.txt");
-        this.DEPART = carreaux.get(0);
+        this.DEPART = carreaux.get(0); 
+        ihm.addObserver(this);
         this.initPartie();
+
     }
                
     @Override    
@@ -45,6 +47,8 @@ public class Controleur implements Observer{
         if (arg == Commande.LANCER_DES) {
             valDes = lancerDés();
             avancer(jCourant, valDes);
+            jCourant.getPositionCourante();
+            
             if (aFaitUnDouble()) {
             System.out.println("DOUBLE !!!!!!!!!!!!!!!!!!!!");
                 ihm.jouerTour(jCourant); // Le joueur rejoue si il a fait un double
@@ -86,6 +90,7 @@ public class Controleur implements Observer{
         jCourant.setPositionCourante(nouveauCarreau);
         
         System.out.println(jCourant.getNomJoueur() + " est a la position " + jCourant.getPositionCourante().getNumero());
+        System.out.println("");
         
     }
     

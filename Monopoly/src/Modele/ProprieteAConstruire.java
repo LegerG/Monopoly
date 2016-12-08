@@ -49,4 +49,6 @@ public class ProprieteAConstruire extends Propriete {
             return groupe.getCouleur();
         }
 
+   
+
 }
