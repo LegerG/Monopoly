@@ -116,10 +116,6 @@ public class Joueur {
             }
     }
 
-    public int getPrix() {
-            // TODO - implement Joueur.getPrix
-            throw new UnsupportedOperationException();
-    }
 
     /**
      * 
