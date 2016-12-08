@@ -2,7 +2,10 @@ package Modele;
 
 public class Gare extends Propriete {
 
+     private int loyerBase = 25;
+     
     public Gare() {
+      
     }
 
     
@@ -11,16 +14,18 @@ public class Gare extends Propriete {
             // TODO - implement Gare.getLoyerBase
             throw new UnsupportedOperationException();
     }
-
-    @Override
-    public int calculLoyer() {
-            // TODO - implement Gare.calculLoyer
-            throw new UnsupportedOperationException();
+    
+     public void setLoyerBase(int loyerBase) {
+        this.loyerBase = loyerBase;
     }
 
     @Override
-    public void payerLoyer(Joueur jAch, Joueur JRec) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int calculLoyer(int[] valDes) {
+        int nbGare = this.getProprietaire().getNbGare();
+        int loyerBase=this.getLoyerBase();
+        
+        return nbGare * loyerBase;
+            
     }
 
 }

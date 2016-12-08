@@ -5,11 +5,17 @@ import java.util.*;
 public class ProprieteAConstruire extends Propriete {
 
 	private Groupe groupe;
-        
+        private int loyerBase;
 
-	public int calculLoyer() {
-		// TODO - implement ProprieteAConstruire.calculLoyer
-		throw new UnsupportedOperationException();
+        @Override
+	public int calculLoyer(int[] valDes) {
+            int nb = this.groupe.getSize();
+            int nbProprieteGroupe = this.getProprietaire().getNbProprietesGroupe(this.groupe);
+                int loyer = this.getLoyerBase();
+                if(nb==nbProprieteGroupe){
+                    loyer = loyer * 2 ;
+                }
+                return loyer;
 	}
 
 	public Groupe getGroupe() {
@@ -22,24 +28,25 @@ public class ProprieteAConstruire extends Propriete {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param loyer
-	 */
-	public int calculLoyerDouble(int loyer) {
-		// TODO - implement ProprieteAConstruire.calculLoyerDouble
-		throw new UnsupportedOperationException();
-	}
+       
+    public int getLoyerBase() {
+        return loyerBase;
+    }
 
-        public void payerLoyer(Joueur jAch, Joueur JRec) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
+    
+    public void setLoyerBase(int loyerBase) {
+        this.loyerBase = loyerBase;
+    }
 
-        public void setGroupe(Groupe groupe) {
-            this.groupe = groupe;
-        }
+	
+
+      
+    public void setGroupe(Groupe groupe) {
+        this.groupe = groupe;
+    }
         
         public CouleurPropriete getCouleur() {
             return groupe.getCouleur();
         }
+
 }

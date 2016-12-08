@@ -14,8 +14,7 @@ public class Groupe {
         
 
 	public int getSize() {
-		// TODO - implement Groupe.getSize
-		throw new UnsupportedOperationException();
+		return this.proprietes.size();
 	}
 
     public CouleurPropriete getCouleur() {

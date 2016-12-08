@@ -21,7 +21,17 @@ public class Joueur {
     }
 
     
-    
+    public int getNbProprietesGroupe(Groupe g){
+        int nbProprietesGroupe = 0;
+        for (int i=0;i<proprietesAConstruires.size();i++ ){
+            if(proprietesAConstruires.get(i).getGroupe()==g){
+                nbProprietesGroupe=nbProprietesGroupe+1;
+            }
+        }
+       return nbProprietesGroupe; 
+    }
+
+ 
     
     
     
@@ -47,6 +57,10 @@ public class Joueur {
     public int getCash() {
             return this.cash;
     }
+    
+      public void setCash(int cash) {
+        this.cash = cash;
+    }
 
     public Carreau getPositionCourante() {
             return this.positionCourante;
@@ -63,7 +77,8 @@ public class Joueur {
     public String getNomJoueur() {
         return nomJoueur;
     }
-    
+
+
     
 
     /**
@@ -80,22 +95,25 @@ public class Joueur {
             throw new UnsupportedOperationException();
     }
 
-    /**
-     * 
-     * @param prix
-     */
+    
     public void subCash(int prix) {
-            // TODO - implement Joueur.subCash
-            throw new UnsupportedOperationException();
+        this.setCash(this.getCash()-prix);
     }
 
     /**
      * 
      * @param positionCourante
      */
-    public void addPropriete(Carreau positionCourante) {
-            // TODO - implement Joueur.addPropriete
-            throw new UnsupportedOperationException();
+    public void addPropriete(Carreau positionCourante) {            // A FINIR
+            if (positionCourante instanceof ProprieteAConstruire){
+                this.proprietesAConstruires.add((ProprieteAConstruire)positionCourante);
+            } else if(positionCourante instanceof Compagnie){
+                this.compagnies.add((Compagnie)positionCourante);
+            } else if(positionCourante instanceof Gare){ {
+                this.gares.add((Gare)positionCourante);
+            }
+           
+    }
     }
 
     public int getPrix() {
