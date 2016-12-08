@@ -54,7 +54,13 @@ public class IHM extends Observable{
         }
         return nomJoueurs;
     }
-
+    
+    public void acheter() {
+        System.out.println("Il n'y a pas de propriétaire. \nVoulez-vous acheter cette propriété ?");
+        Scanner sc = new Scanner(System.in);
+        
+        String reponse = sc.nextLine();
+    }
 
     
 

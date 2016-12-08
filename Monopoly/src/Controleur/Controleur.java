@@ -50,6 +50,36 @@ public class Controleur implements Observer{
             Carreau caseJoueur = jCourant.getPositionCourante();
             int numcaseJoueur = caseJoueur.getNumero();
             
+            if (null != caseJoueur.getTypeCarreau()) 
+                switch (caseJoueur.getTypeCarreau()) {
+                    case "P":
+                        ProprieteAConstruire p = (ProprieteAConstruire) jCourant.getPositionCourante();
+                        if (p.getProprietaire() == null) {
+                            ihm.acheter();
+                        }
+                        else {
+                            if (p.getProprietaire() != jCourant) {
+                                
+                            }
+                            else {
+                                
+                            }
+                        }
+                        break;
+                    case "G":
+
+                        break;
+                    case "C":
+
+                        break;
+                    case "AU":
+
+                        break;
+                    default:
+                        System.err.println("ERROR !");
+                        break;
+                }
+            
             
             
             if (aFaitUnDouble()) {
