@@ -11,8 +11,7 @@ public class Gare extends Propriete {
     
 
     public int getLoyerBase() {
-            // TODO - implement Gare.getLoyerBase
-            throw new UnsupportedOperationException();
+            return this.loyerBase;
     }
     
      public void setLoyerBase(int loyerBase) {

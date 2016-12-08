@@ -2,45 +2,45 @@ package Modele;
 
 public abstract class Propriete extends Carreau {
 
-	private Joueur proprietaire;
-	private int prix;
-	
+    private Joueur proprietaire;
+    private int prix;
 
-        public Propriete() {
-            this.proprietaire = null;
-            this.prix = -1;
-        }
 
-        
-       
-        
-        
-        public abstract int calculLoyer(int[] valDes);
+    public Propriete() {
+        this.proprietaire = null;
+        this.prix = -1;
+    }
 
-        public void payerLoyer(Joueur jAch, Joueur JRec){
-            // 
-        }
-       
 
-	public void acheterPropriete(Joueur jCourant) {
-		
-	}
 
-	public Joueur getProprietaire() {
-		return this.proprietaire;
-	}
 
-	public int getPrix() {
-		return this.prix;
-	}
 
-	public void setProprietaire(Joueur jCourant) {
-		this.proprietaire = jCourant;
-	}
+    public abstract int calculLoyer(int[] valDes);
 
-        public void setPrix(int prix) {
-            this.prix = prix;
-        }
+    public void payerLoyer(Joueur jAch, Joueur JRec){
+        // 
+    }
+
+
+    public void acheterPropriete(Joueur jCourant) {
+
+    }
+
+    public Joueur getProprietaire() {
+            return this.proprietaire;
+    }
+
+    public int getPrix() {
+            return this.prix;
+    }
+
+    public void setProprietaire(Joueur jCourant) {
+            this.proprietaire = jCourant;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
         
         
         

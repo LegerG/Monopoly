@@ -4,50 +4,44 @@ import java.util.*;
 
 public class ProprieteAConstruire extends Propriete {
 
-	private Groupe groupe;
-        private int loyerBase;
+    private Groupe groupe;
+    private int loyerBase;
 
-        @Override
-	public int calculLoyer(int[] valDes) {
-            int nb = this.groupe.getSize();
-            int nbProprieteGroupe = this.getProprietaire().getNbProprietesGroupe(this.groupe);
-                int loyer = this.getLoyerBase();
-                if(nb==nbProprieteGroupe){
-                    loyer = loyer * 2 ;
-                }
-                return loyer;
-	}
+    @Override
+    public int calculLoyer(int[] valDes) {
+        int nb = this.groupe.getSize();
+        int nbProprieteGroupe = this.getProprietaire().getNbProprietesGroupe(this.groupe);
+            int loyer = this.getLoyerBase();
+            if(nb==nbProprieteGroupe){
+                loyer = loyer * 2 ;
+            }
+            return loyer;
+    }
 
-	public Groupe getGroupe() {
-		// TODO - implement ProprieteAConstruire.getGroupe
-		throw new UnsupportedOperationException();
-	}
+    public Groupe getGroupe() {
+            return this.groupe;
+    }
 
-	public int getLoyer() {
-		// TODO - implement ProprieteAConstruire.getLoyer
-		throw new UnsupportedOperationException();
-	}
-
+    public int getLoyer() {
+            // TODO - implement ProprieteAConstruire.getLoyer
+            throw new UnsupportedOperationException();
+    }
        
     public int getLoyerBase() {
         return loyerBase;
     }
-
     
     public void setLoyerBase(int loyerBase) {
         this.loyerBase = loyerBase;
     }
-
-	
-
       
     public void setGroupe(Groupe groupe) {
         this.groupe = groupe;
     }
         
-        public CouleurPropriete getCouleur() {
-            return groupe.getCouleur();
-        }
+    public CouleurPropriete getCouleur() {
+        return groupe.getCouleur();
+    }
 
    
 

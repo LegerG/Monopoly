@@ -8,7 +8,8 @@ public class Compagnie extends Propriete {
         int loyerFinal = 0;
         if (nbCompagnie==1){
             loyerFinal = 4*(valDes[0]+valDes[1]);
-        } else if (nbCompagnie==2) {
+        } 
+        else if (nbCompagnie==2) {
             loyerFinal= 10*(valDes[0]+valDes[1]);
         }
         return loyerFinal;

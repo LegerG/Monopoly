@@ -91,8 +91,7 @@ public class Joueur {
     }
 
     public int getNbGare() {
-            // TODO - implement Joueur.getNbGare
-            throw new UnsupportedOperationException();
+            return gares.size();
     }
 
     
@@ -132,8 +131,7 @@ public class Joueur {
     }
 
     public int getNbCompagnie() {
-            // TODO - implement Joueur.getNbCompagnie
-            throw new UnsupportedOperationException();
+           return compagnies.size();
     }
 
 
