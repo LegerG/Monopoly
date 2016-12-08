@@ -50,37 +50,20 @@ public class Controleur implements Observer{
             Carreau caseJoueur = jCourant.getPositionCourante();
             int numcaseJoueur = caseJoueur.getNumero();
             
-            if (null != caseJoueur.getTypeCarreau()) 
-                switch (caseJoueur.getTypeCarreau()) {
-                    case "P":
-                        ProprieteAConstruire p = (ProprieteAConstruire) jCourant.getPositionCourante();
-                        if (p.getProprietaire() == null) {
-                            ihm.acheter();
-                        }
-                        else {
-                            if (p.getProprietaire() != jCourant) {
-                                
-                            }
-                            else {
-                                
-                            }
-                        }
-                        break;
-                    case "G":
+             if(null != caseJoueur.getTypeCarreau()){
+                 if((caseJoueur.getTypeCarreau() == "P") ||
+                    (caseJoueur.getTypeCarreau() == "G") ||
+                    (caseJoueur.getTypeCarreau() == "C")){
+                     Propriete p = (Propriete) jCourant.getPositionCourante();
+                       if (p.getProprietaire() == null) {
+                           ihm.acheter(p);
+                           
+                      }
 
-                        break;
-                    case "C":
+                 }
+                 
+             } 
 
-                        break;
-                    case "AU":
-
-                        break;
-                    default:
-                        System.err.println("ERROR !");
-                        break;
-                }
-            
-            
             
             if (aFaitUnDouble()) {
             System.out.println("DOUBLE !!!!!!!!!!!!!!!!!!!!");
@@ -89,9 +72,15 @@ public class Controleur implements Observer{
             
         }
         else if (arg == Commande.ACHETER) {
-            
+              System.out.println("blblblblblblblblbbl");
+              Propriete p = (Propriete) jCourant.getPositionCourante();
+              System.out.println("VOUS VENEZ D'ACHETER LA CASE : "+ p.getNomCarreau());
+              System.out.println("Vous aviez : " + jCourant.getCash() + "€");
+              jCourant.subCash(p.getPrix());
+              System.out.println("Et Maintenant vous avez : "+ jCourant.getCash()+ "€");
+
         }
-            
+           
     }
     
     public void initPartie() {
@@ -118,7 +107,7 @@ public class Controleur implements Observer{
         
         Carreau ancienCarreau = jCourant.getPositionCourante();
         int numAncienCarreau = ancienCarreau.getNumero();
-        int numNouvCarreau = (numAncienCarreau - 1 + valDes[0] + valDes[1]) % 40;
+        int numNouvCarreau = (numAncienCarreau - 1 + valDes[0] + valDes[1]) % carreaux.size();
         Carreau nouveauCarreau = carreaux.get(numNouvCarreau);
         jCourant.setPositionCourante(nouveauCarreau);
         

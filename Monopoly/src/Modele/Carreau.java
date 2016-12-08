@@ -35,6 +35,10 @@ public abstract class Carreau {
     public void setTypeCarreau(String typeCarreau) {
         this.typeCarreau = typeCarreau;
     }
+
+    public String getNomCarreau() {
+        return nomCarreau;
+    }
     
     
         

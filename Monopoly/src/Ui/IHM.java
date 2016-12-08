@@ -2,6 +2,7 @@ package Ui;
 
 import Controleur.Controleur;
 import Modele.Joueur;
+import Modele.Propriete;
 import static Ui.Utilitaire.lancerDés;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -55,13 +56,41 @@ public class IHM extends Observable{
         return nomJoueurs;
     }
     
-    public void acheter() {
-        System.out.println("Il n'y a pas de propriétaire. \nVoulez-vous acheter cette propriété ?");
+    public void acheter(Propriete p) {
+        System.out.println("Il n'y a pas de propriétaire."); ;
         Scanner sc = new Scanner(System.in);
         
-        String reponse = sc.nextLine();
-    }
+        System.out.println("Voulez-vous acheter la propriété " + p.getNomCarreau() + ", coutant " + p.getPrix() + "€ ? (oui/non) ");
+        String reponse;
+        reponse = ("");
+        
+        reponse = sc.nextLine(); 
+        
+        
+//        while ((!"oui".equals(reponse)) || (!"non".equals(reponse))) {
+//            
+//            System.out.println("Voulez-vous acheter cette propriété ? (oui/non) ");
+//            reponse = sc.next(); 
+//        }
 
+        if(reponse != "oui" || reponse !="non"){
+            reponse = "oui";
+        }
+        
+        if(reponse == "oui"){
+            setChanged();
+            notifyObservers(Commande.ACHETER);
+            clearChanged();
+        } else{
+            setChanged(); 
+            notifyObservers(Commande.NON);
+            clearChanged();
+        }
+ 
+
+    }
+    
+    
     
 
 }

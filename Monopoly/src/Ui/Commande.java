@@ -11,5 +11,7 @@ package Ui;
  */
 public enum Commande {
     LANCER_DES,
-    ACHETER;
+    ACHETER,
+    OUI,
+    NON;
 }
