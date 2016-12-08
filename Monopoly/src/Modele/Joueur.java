@@ -95,6 +95,20 @@ public class Joueur {
            return compagnies.size();
     }
 
+    public ArrayList<Gare> getGares() {
+        return gares;
+    }
+
+    public ArrayList<Compagnie> getCompagnies() {
+        return compagnies;
+    }
+
+    public ArrayList<ProprieteAConstruire> getProprietesAConstruires() {
+        return proprietesAConstruires;
+    }
+    
+    
+
 
     
     
