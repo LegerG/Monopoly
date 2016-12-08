@@ -82,7 +82,9 @@ public class Joueur {
                 this.compagnies.add((Compagnie)positionCourante);
             } else if(positionCourante instanceof Gare){ 
                 this.gares.add((Gare)positionCourante);
+                
             }
+
            
     }
     

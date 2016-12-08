@@ -1,8 +1,10 @@
 package Modele;
 
+import Ui.TypeCarreau;
+
 public abstract class Carreau {
     
-    private String typeCarreau;    
+    private TypeCarreau typeCarreau;    
     private int numero;
     private String nomCarreau;
 
@@ -28,11 +30,11 @@ public abstract class Carreau {
         this.numero = numero;
     }
 
-    public String getTypeCarreau() {
+    public TypeCarreau getTypeCarreau() {
         return typeCarreau;
     }
 
-    public void setTypeCarreau(String typeCarreau) {
+    public void setTypeCarreau(TypeCarreau typeCarreau) {
         this.typeCarreau = typeCarreau;
     }
 

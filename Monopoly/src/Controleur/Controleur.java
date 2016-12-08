@@ -11,6 +11,7 @@ import Modele.Propriete;
 import Modele.ProprieteAConstruire;
 import Ui.Commande;
 import Ui.IHM;
+import Ui.TypeCarreau;
 import Ui.Utilitaire;
 import static Ui.Utilitaire.lancerDés;
 import java.io.BufferedReader;
@@ -51,13 +52,21 @@ public class Controleur implements Observer{
             int numcaseJoueur = caseJoueur.getNumero();
             
              if(null != caseJoueur.getTypeCarreau()){
-                 if((caseJoueur.getTypeCarreau() == "P") ||
-                    (caseJoueur.getTypeCarreau() == "G") ||
-                    (caseJoueur.getTypeCarreau() == "C")){
+                 if((caseJoueur.getTypeCarreau() == TypeCarreau.P) ||
+                    (caseJoueur.getTypeCarreau() == TypeCarreau.G) ||
+                    (caseJoueur.getTypeCarreau() == TypeCarreau.C)){
                      Propriete p = (Propriete) jCourant.getPositionCourante();
-                       if (p.getProprietaire() == null) {
-                           ihm.acheter(p);
+                      if (p.getProprietaire() == null) {
+                        ihm.acheter(p);
                            
+                      }
+                      else{
+                          System.out.println("TU ES TOMBE SUR UNE PROPRIETE");
+                          int loyer = p.calculLoyer(valDes);
+                          jCourant.payerLoyer(loyer);                       
+                          System.out.println(p.getProprietaire().getCash());
+                          p.getProprietaire().recevoirLoyer(loyer);
+                          System.out.println(p.getProprietaire().getCash());
                       }
 
                  }
@@ -78,6 +87,7 @@ public class Controleur implements Observer{
               System.out.println("Vous aviez : " + jCourant.getCash() + "€");
               jCourant.subCash(p.getPrix());
               System.out.println("Et Maintenant vous avez : "+ jCourant.getCash()+ "€");
+              jCourant.addPropriete(nouveauCarreau);
 
         }
            
@@ -145,7 +155,7 @@ public class Controleur implements Observer{
                     System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     ProprieteAConstruire p = new ProprieteAConstruire();
                     
-                    p.setTypeCarreau(data.get(i)[0]);
+                    p.setTypeCarreau((TypeCarreau.valueOf(data.get(i)[0])));
                     p.setNumero(Integer.parseInt(data.get(i)[1]));
                     p.setNomCarreau(data.get(i)[2]);
                     p.setPrix(Integer.parseInt(data.get(i)[4]));
@@ -165,7 +175,7 @@ public class Controleur implements Observer{
                     System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t"  + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     Gare g = new Gare();
                     
-                    g.setTypeCarreau(data.get(i)[0]);
+                    g.setTypeCarreau((TypeCarreau.valueOf(data.get(i)[0])));
                     g.setNumero(Integer.parseInt(data.get(i)[1]));
                     g.setNomCarreau(data.get(i)[2]);
                     g.setPrix(Integer.parseInt(data.get(i)[3]));
@@ -176,7 +186,7 @@ public class Controleur implements Observer{
                     System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t"  + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     Compagnie c = new Compagnie();
                     
-                    c.setTypeCarreau(data.get(i)[0]);
+                    c.setTypeCarreau((TypeCarreau.valueOf(data.get(i)[0])));
                     c.setNumero(Integer.parseInt(data.get(i)[1]));
                     c.setNomCarreau(data.get(i)[2]);
                     c.setPrix(Integer.parseInt(data.get(i)[3])); 
@@ -187,7 +197,7 @@ public class Controleur implements Observer{
                     System.out.println("Type Carreau :\t" + data.get(i)[0] + "\t"  + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                     AutreCarreau ac = new AutreCarreau();
                     
-                    ac.setTypeCarreau(data.get(i)[0]);
+                    ac.setTypeCarreau((TypeCarreau.valueOf(data.get(i)[0])));
                     ac.setNumero(Integer.parseInt(data.get(i)[1]));
                     ac.setNomCarreau(data.get(i)[2]);
 
