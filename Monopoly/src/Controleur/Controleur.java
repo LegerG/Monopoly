@@ -70,7 +70,7 @@ public class Controleur implements Observer{
                             payerLoyer(p);
                         }
                         else {
-                            ihm.sweetHome();
+                            ihm.afficherSweetHome();
                         }
                         
                     }
