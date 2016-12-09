@@ -75,9 +75,9 @@ public class Controleur implements Observer{
                         
                     }
 
-                 }
-                 
-             } 
+                }
+
+            } 
 
             
             if (aFaitUnDouble()) {
