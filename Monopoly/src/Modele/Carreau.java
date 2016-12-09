@@ -1,7 +1,5 @@
 package Modele;
 
-import Ui.TypeCarreau;
-
 public abstract class Carreau {
     
     private TypeCarreau typeCarreau;    

@@ -18,8 +18,10 @@ public class IHM extends Observable{
     }
 
     public void jouerTour(Joueur jCourant) {
-        System.out.println(jCourant.getNomJoueur());
+        System.out.println("");
+        System.out.println("Tour de " + jCourant.getNomJoueur());
         System.out.println("Tu as : " + jCourant.getCash() + "€");
+        System.out.println("Appuyez sur entrée pour tirer les dés");
         setChanged();
         notifyObservers(Commande.LANCER_DES);
         clearChanged();
@@ -58,7 +60,7 @@ public class IHM extends Observable{
     }
     
     public void acheter(Propriete p) {
-        System.out.println("Il n'y a pas de propriétaire."); ;
+        System.out.println("Il n'y a pas de propriétaire.");
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Voulez-vous acheter la propriété " + p.getNomCarreau() + ", coutant " + p.getPrix() + "€ ? (oui/non) ");
@@ -87,7 +89,7 @@ public class IHM extends Observable{
 //            }
         
        
-        reponse = sc.nextLine();
+        
         System.out.println(reponse);
         if(oui.equals(reponse)){
             setChanged();
@@ -114,10 +116,36 @@ public class IHM extends Observable{
         System.out.println("Tu as fais un double.");
     }
     
-    public void afficheAchatPropriete(Joueur jCourant, Propriete p){
+    public void afficheAchatProprieteAvant(Joueur jCourant, Propriete p){
         System.out.println("VOUS VENEZ D'ACHETER LA CASE : "+ p.getNomCarreau());
-        System.out.println("Vous aviez : " + jCourant.getCash() + "€");
-        System.out.println("Et Maintenant vous avez : "+ jCourant.getCash()+ "€");
+        System.out.println("Vous aviez : " + jCourant.getCash() + "€.");
+    }
+    
+    public void afficheAchatProprieteApres(Joueur jCourant, Propriete p){
+        System.out.println("Et Maintenant vous avez : "+ jCourant.getCash()+ "€.");
+    }
+    
+    public void affichePayerLoyer(Propriete p) {
+        System.out.println("TU ES TOMBE SUR UNE PROPRIETE !");
+        System.out.println(p.getProprietaire().getCash());
+
+    }
+    
+    public void afficherAvancer(Joueur jCourant, int[] valDes) {
+        System.out.println("Valeur des dés : " + valDes[0] + "   " + valDes[1]);
+        System.out.println(jCourant.getNomJoueur() + " est a la position " + jCourant.getPositionCourante().getNumero() + ".");
+    }
+    
+    public void affichePartrimoine(Joueur jCourant){
+        System.out.println("Votre patrimoine : ");
+        System.out.println("\tNombres de compagnies : " + jCourant.getCompagnies().size() + ".");
+        System.out.println("\tNombres de gares : "  + jCourant.getGares().size() + ".");
+        System.out.println("\tNombres de propriete à construire : " + jCourant.getProprietesAConstruires().size() + ".");
+    }
+    
+    public void afficherSweetHome() {
+        System.out.println("Vous êtes chez vous ! :)");
+        new Scanner(System.in).nextLine();
     }
  }
     

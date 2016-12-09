@@ -22,14 +22,8 @@ public class Monopoly {
         IHM ihm = new IHM();
         Controleur controleur = new Controleur(ihm);
         
-//        controleur.initPartie();
-        
-//        controleur.testFaillite();
-        
-//        controleur.testArretGare();
-        
         ihm.addObserver(controleur);
-        
+        controleur.initPartie();
         
         
     }

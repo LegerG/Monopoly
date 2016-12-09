@@ -12,20 +12,7 @@ public abstract class Propriete extends Carreau {
         this.prix = -1;
     }
 
-
-
-
-
     public abstract int calculLoyer(int[] valDes);
-
-    public void payerLoyer(Joueur jAch, Joueur JRec){
-        // 
-    }
-
-
-    public void acheterPropriete(Joueur jCourant) {
-
-    }
 
     public Joueur getProprietaire() {
             return this.proprietaire;

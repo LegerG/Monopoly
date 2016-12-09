@@ -66,6 +66,8 @@ public class Joueur {
         return gares.size();
 
     }
+    
+    
 
     
     public void subCash(int prix) {
@@ -75,13 +77,14 @@ public class Joueur {
 
     
     public void addPropriete(Carreau positionCourante) {           
-            if (positionCourante instanceof ProprieteAConstruire){
+            if (positionCourante.getTypeCarreau() == TypeCarreau.PROPRIETE){
                 this.proprietesAConstruires.add((ProprieteAConstruire)positionCourante);
-            } else if(positionCourante instanceof Compagnie){
+            } 
+            else if(positionCourante.getTypeCarreau() == TypeCarreau.COMPAGNIE){
                 this.compagnies.add((Compagnie)positionCourante);
-            } else if(positionCourante instanceof Gare){ 
+            } 
+            else if(positionCourante.getTypeCarreau() == TypeCarreau.GARE){ 
                 this.gares.add((Gare)positionCourante);
-                
             }
             
            
