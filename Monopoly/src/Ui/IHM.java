@@ -19,6 +19,7 @@ public class IHM extends Observable{
 
     public void jouerTour(Joueur jCourant) {
         System.out.println(jCourant.getNomJoueur());
+        System.out.println("Tu as : " + jCourant.getCash() + "€");
         setChanged();
         notifyObservers(Commande.LANCER_DES);
         clearChanged();
@@ -61,33 +62,44 @@ public class IHM extends Observable{
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Voulez-vous acheter la propriété " + p.getNomCarreau() + ", coutant " + p.getPrix() + "€ ? (oui/non) ");
-        String reponse;
-        reponse = ("");
+        String reponse = sc.nextLine();
         
-        reponse = sc.nextLine(); 
+        String oui = "oui";
+        String non = "non";
         
-        
-//        while ((!"oui".equals(reponse)) || (!"non".equals(reponse))) {
-//            
-//            System.out.println("Voulez-vous acheter cette propriété ? (oui/non) ");
-//            reponse = sc.next(); 
+//        while (!oui.equals(reponse) ^ !non.equals(reponse)){
+//            System.out.println("Voulez-vous acheter la propriété " + p.getNomCarreau() + ", coutant " + p.getPrix() + "€ ? (oui/non) ");
+//            reponse = sc.nextLine();   
 //        }
-
-        if(reponse != "oui" || reponse !="non"){
-            reponse = "oui";
-        }
+//        
+//         if(oui.equals(reponse)){
+//                setChanged();
+//                notifyObservers(Commande.ACHETER);
+//                clearChanged();
+//            } 
+//            else if (non.equals(reponse)){
+//                setChanged(); 
+//                notifyObservers(Commande.NON);
+//                clearChanged();
+//            }
+//            else {          
+//                reponse = sc.nextLine(); 
+//            }
         
-        if(reponse == "oui"){
+       
+        reponse = sc.nextLine();
+        System.out.println(reponse);
+        if(oui.equals(reponse)){
             setChanged();
             notifyObservers(Commande.ACHETER);
             clearChanged();
-        } else{
+        } 
+        else if (non.equals(reponse)){
             setChanged(); 
             notifyObservers(Commande.NON);
             clearChanged();
-        }
- 
 
+        }
     }
     
     public void joueurSupprime(Joueur j){
@@ -96,6 +108,16 @@ public class IHM extends Observable{
     
     public void vainqueur(Joueur j) {
         System.out.println("Le joueur : " + j.getNomJoueur() + " a gangé cette partie de Monopoly." );
+    }
+    
+    public void aFaitDouble(){
+        System.out.println("Tu as fais un double.");
+    }
+    
+    public void afficheAchatPropriete(Joueur jCourant, Propriete p){
+        System.out.println("VOUS VENEZ D'ACHETER LA CASE : "+ p.getNomCarreau());
+        System.out.println("Vous aviez : " + jCourant.getCash() + "€");
+        System.out.println("Et Maintenant vous avez : "+ jCourant.getCash()+ "€");
     }
  }
     

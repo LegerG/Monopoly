@@ -12,12 +12,11 @@ public class Joueur {
     private ArrayList<Gare> gares = new ArrayList<>();
     private Carreau positionCourante;
     private String nomJoueur;
-    private int cash;
+    private int cash = 1500;
 
     public Joueur(String nomJoueur) {
         this.positionCourante = null;
         this.nomJoueur = nomJoueur;
-        this.cash = 1500;
     }
 
     
@@ -84,7 +83,7 @@ public class Joueur {
                 this.gares.add((Gare)positionCourante);
                 
             }
-
+            
            
     }
     

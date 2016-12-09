@@ -39,7 +39,7 @@ public class Controleur implements Observer{
         CreerPlateau("src/Data/data.txt");
         this.DEPART = carreaux.get(0); 
         ihm.addObserver(this);
-        this.initPartie();
+        
 
     }
                
@@ -61,12 +61,7 @@ public class Controleur implements Observer{
                            
                       }
                       else{
-                          System.out.println("TU ES TOMBE SUR UNE PROPRIETE");
-                          int loyer = p.calculLoyer(valDes);
-                          jCourant.payerLoyer(loyer);                       
-                          System.out.println(p.getProprietaire().getCash());
-                          p.getProprietaire().recevoirLoyer(loyer);
-                          System.out.println(p.getProprietaire().getCash());
+                          payerLoyer(p);
                       }
 
                  }
@@ -75,18 +70,15 @@ public class Controleur implements Observer{
 
             
             if (aFaitUnDouble()) {
-            System.out.println("DOUBLE !!!!!!!!!!!!!!!!!!!!");
+                ihm.aFaitDouble();
                 ihm.jouerTour(jCourant); // Le joueur rejoue si il a fait un double
             }
             
         }
         else if (arg == Commande.ACHETER) {
-              System.out.println("blblblblblblblblbbl");
               Propriete p = (Propriete) jCourant.getPositionCourante();
-              System.out.println("VOUS VENEZ D'ACHETER LA CASE : "+ p.getNomCarreau());
-              System.out.println("Vous aviez : " + jCourant.getCash() + "€");
+              ihm.afficheAchatPropriete(jCourant, p);
               jCourant.subCash(p.getPrix());
-              System.out.println("Et Maintenant vous avez : "+ jCourant.getCash()+ "€");
               jCourant.addPropriete(nouveauCarreau);
 
         }
@@ -276,6 +268,62 @@ public class Controleur implements Observer{
         joueurs.remove(j);
     }
     
+    public void payerLoyer(Propriete p) {
+        System.out.println("TU ES TOMBE SUR UNE PROPRIETE");
+        int loyer = p.calculLoyer(valDes);
+        jCourant.payerLoyer(loyer);                       
+        System.out.println(p.getProprietaire().getCash());
+        p.getProprietaire().recevoirLoyer(loyer);
+        System.out.println(p.getProprietaire().getCash());
+    }
+    
+    
+    public void testArretGare() {
+        
+    }
+    
+    public void testDouble() {
+        
+    }
+    
+    public void testPossedePropriete() {
+        
+    }
+    
+    public void testArretSurProprietePrive() {
+        
+    }
+    
+    public void testArretSurCompagnie() {
+        
+    }
+    
+    public void testFaillite() {
+        Joueur j1 = new Joueur("J1");
+        Joueur j2 = new Joueur("J2");
+        joueurs.add(j1);
+        joueurs.add(j2);
+        
+        jCourant = j2;
+        j1.subCash(1499);
+        Propriete p = (Propriete) carreaux.get(5);
+        p.setProprietaire(jCourant);
+        j2.addPropriete(p);
+        j1.setPositionCourante(carreaux.get(5));
+        payerLoyer((Propriete) carreaux.get(5));
+        
+        if (faillite(jCourant)){
+            supprimerJoueur(jCourant);
+            ihm.joueurSupprime(jCourant);
+        }
+        
+        ihm.vainqueur(joueurs.get(0));
+
+    }
+    
+    public void testVainqueur() {
+        
+    }
 }
     
     
