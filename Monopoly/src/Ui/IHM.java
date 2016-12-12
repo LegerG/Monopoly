@@ -107,27 +107,7 @@ public class IHM extends Observable{
            notifyObservers(Commande.ABANDON);
            clearChanged(); 
         }
-        
-//        System.out.println("\tVoulez-vous acheter la propriété \033[32m" + p.getNomCarreau() + "\033[00m, coutant \033[36m" + p.getPrix() + 
-//                            "€\033[00m ? (oui/non) ");
-//        System.out.print("\t\t");
-//        
-//        String reponse = sc.nextLine();
-//        
-//        String oui = "oui";
-//        String non = "non";
-//        
-//        if(oui.equals(reponse)){
-//            setChanged();
-//            notifyObservers(Commande.ACHETER);
-//            clearChanged();
-//        } 
-//        else if (non.equals(reponse)){
-//            setChanged(); 
-//            notifyObservers(Commande.NON);
-//            clearChanged();
-//            System.out.println("\tVous n'avez pas acheté la propriété.");
-//        }
+       
     }
     
     public void joueurSupprime(Joueur j){
