@@ -36,6 +36,8 @@ public class IHM extends Observable{
         
         int nbJoueur = 0;
         
+        System.out.println("*********************************************************************");
+        
         System.out.println("Combien êtes-vous pour jouer ? (min : 2 / max : 6)");
 
         nbJoueur = sc.nextInt(); 
