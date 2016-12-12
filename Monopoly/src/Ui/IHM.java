@@ -1,14 +1,10 @@
 package Ui;
 
-import Controleur.Controleur;
 import Modele.Joueur;
 import Modele.Propriete;
-import static Ui.Utilitaire.lancerDés;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Scanner;
-import javax.swing.event.ChangeEvent;
-import java.awt.Color;
 
 public class IHM extends Observable{
     
