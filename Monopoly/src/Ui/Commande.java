@@ -13,5 +13,6 @@ public enum Commande {
     LANCER_DES,
     ACHETER,
     OUI,
-    NON;
+    NON,
+    ABANDON;
 }

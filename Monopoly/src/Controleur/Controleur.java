@@ -89,12 +89,12 @@ public class Controleur implements Observer{
         }
         else if (arg == Commande.ACHETER) {
             
-              Propriete p = (Propriete) jCourant.getPositionCourante();
-              ihm.afficheAchatProprieteAvant(jCourant, p);
-              jCourant.subCash(p.getPrix());
-              jCourant.addPropriete(p);
-              p.setProprietaire(jCourant);
-              ihm.afficheAchatProprieteApres(jCourant, p);
+              acheterPropriete();
+
+        }
+        else if (arg == Commande.ABANDON) {
+            
+              joueurs.remove(jCourant);
 
         }
            
@@ -290,7 +290,14 @@ public class Controleur implements Observer{
         ihm.affichePayerLoyer(p, loyer, jCourant);
     }
     
-    
+    public void acheterPropriete() {
+        Propriete p = (Propriete) jCourant.getPositionCourante();
+              ihm.afficheAchatProprieteAvant(jCourant, p);
+              jCourant.subCash(p.getPrix());
+              jCourant.addPropriete(p);
+              p.setProprietaire(jCourant);
+              ihm.afficheAchatProprieteApres(jCourant, p);
+    }
 
 }
     

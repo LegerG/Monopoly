@@ -46,14 +46,14 @@ public class IHM extends Observable{
         System.out.println("\033[31m************************************************************************");
         
         
-        System.out.println("\033[00m\tCombien êtes-vous pour jouer ? (min : 2 / max : 6)");
+        System.out.print("\033[00m\tCombien êtes-vous pour jouer ? (min : 2 / max : 6)");
         System.out.print("\t");
         nbJoueur = sc.nextInt();
         
         
         while (nbJoueur < 2 || nbJoueur > 6){
             
-            System.out.println("\tCombien êtes-vous pour jouer ? (min : 2 / max : 6)");
+            System.out.print("\tCombien êtes-vous pour jouer ? (min : 2 / max : 6)");
             System.out.print("\t");
             nbJoueur = sc.nextInt(); 
         }
@@ -61,7 +61,7 @@ public class IHM extends Observable{
         
         
         for(int i = 0; i < nbJoueur; i++) {
-            System.out.println("\tQuel est votre nom ? ");
+            System.out.print("\tQuel est votre nom ? ");
             System.out.print("\t");
             String nomJoueur = sc.next();
             nomJoueurs.add(nomJoueur);
@@ -76,36 +76,67 @@ public class IHM extends Observable{
         System.out.print("\t");
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("\tVoulez-vous acheter la propriété \033[32m" + p.getNomCarreau() + "\033[00m, coutant \033[36m" + p.getPrix() + 
-                            "€\033[00m ? (oui/non) ");
-        System.out.print("\t\t");
+        System.out.println("\n\t==============================================================================");
+        System.out.println("\t\t\t* 1 - Acheter.");
+        System.out.println("\t\t\t* 2 - Ne rien faire.");
+        System.out.println("\t\t\t* 3 - Quitter la partie.");
+        System.out.println("\t==============================================================================");
         
-        String reponse = sc.nextLine();
+        System.out.print("\tIndiquez votre choix : ");
+        int reponse = sc.nextInt();
         
-        String oui = "oui";
-        String non = "non";
-        
-        if(oui.equals(reponse)){
-            setChanged();
-            notifyObservers(Commande.ACHETER);
-            clearChanged();
-        } 
-        else if (non.equals(reponse)){
-            setChanged(); 
-            notifyObservers(Commande.NON);
-            clearChanged();
-            System.out.println("\tVous n'avez pas acheté la propriété.");
-
+        while (reponse < 1 || reponse > 3){
+            System.out.print("\tIndiquez votre choix : ");
+            System.out.print("\t");
+            reponse = sc.nextInt();
         }
+        
+        if(reponse == 1){
+           setChanged();
+           notifyObservers(Commande.ACHETER);
+           clearChanged(); 
+        }
+        else if(reponse == 2){
+           setChanged();
+           notifyObservers(Commande.NON);
+           clearChanged();
+           System.out.println("\tVous n'avez pas acheté la propriété.");
+        } 
+        else if(reponse == 3){
+           setChanged();
+           notifyObservers(Commande.ABANDON);
+           clearChanged(); 
+        }
+        
+//        System.out.println("\tVoulez-vous acheter la propriété \033[32m" + p.getNomCarreau() + "\033[00m, coutant \033[36m" + p.getPrix() + 
+//                            "€\033[00m ? (oui/non) ");
+//        System.out.print("\t\t");
+//        
+//        String reponse = sc.nextLine();
+//        
+//        String oui = "oui";
+//        String non = "non";
+//        
+//        if(oui.equals(reponse)){
+//            setChanged();
+//            notifyObservers(Commande.ACHETER);
+//            clearChanged();
+//        } 
+//        else if (non.equals(reponse)){
+//            setChanged(); 
+//            notifyObservers(Commande.NON);
+//            clearChanged();
+//            System.out.println("\tVous n'avez pas acheté la propriété.");
+//        }
     }
     
     public void joueurSupprime(Joueur j){
-        System.out.println("\t\033[00mLe joueur : \033[34m" + j.getNomJoueur() + " \033[00mest en faillite, il est donc retiré du jeu.\033[00m");
+        System.out.println("\t\033[34m" + j.getNomJoueur() + " \033[00mest en faillite, il est donc retiré du jeu.\033[00m");
     }
     
     public void vainqueur(Joueur j) {
         System.out.println("=====================================================================================");
-        System.out.println("\tLe joueur : " + j.getNomJoueur() + " a gangé cette partie de Monopoly." );
+        System.out.println("\t\t\033[34m" + j.getNomJoueur() + " a gagné cette partie de Monopoly." );
         System.out.println("=====================================================================================");
     }
     
@@ -124,7 +155,7 @@ public class IHM extends Observable{
     
     public void affichePayerLoyer(Propriete p, int loyer, Joueur j) {
         System.out.println("\t\033[31m\tTu es tombé sur la propriété de \033[34m" + p.getProprietaire().getNomJoueur() + "\033[00m.");
-        System.out.println("\tTu as payé : \033[31m" + loyer + "\033[36m€\033[00m.");
+        System.out.println("\tTu as payé : \033[31m" + loyer + "\033[31m€\033[00m.");
         System.out.println("\tIl te reste : \033[36m" + j.getCash() + "\033[36m€\033[00m.");
 
     }
