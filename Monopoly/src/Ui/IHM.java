@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Scanner;
 import javax.swing.event.ChangeEvent;
+import java.awt.Color;
 
 public class IHM extends Observable{
     
@@ -19,7 +20,7 @@ public class IHM extends Observable{
 
     public void jouerTour(Joueur jCourant) {
         System.out.println("");
-        System.out.println("Tour de " + jCourant.getNomJoueur());
+        System.out.println("\033[00mTour de " + "\033[34m" + jCourant.getNomJoueur());
         System.out.println("Tu as : " + jCourant.getCash() + "€");
         System.out.println("Appuyez sur entrée pour tirer les dés");
         setChanged();
@@ -35,24 +36,33 @@ public class IHM extends Observable{
         ArrayList<String> nomJoueurs = new ArrayList<>();
         
         int nbJoueur = 0;
+        System.out.println("\t#Lancement du jeu");
+        System.out.println("\t#Création du plateau de jeu");
+        System.out.println("\t#Démarrage...\n");
         
-        System.out.println("*********************************************************************");
         
-        System.out.println("Combien êtes-vous pour jouer ? (min : 2 / max : 6)");
-
+        System.out.println("\033[31m************************************************************************");
+        System.out.println("\033[31m*                               Monopoly                               *");
+        System.out.println("\033[31m************************************************************************");
+        
+        
+        System.out.println("\033[00m\tCombien êtes-vous pour jouer ? (min : 2 / max : 6)");
+        System.out.print("\t");
         nbJoueur = sc.nextInt(); 
         
         
         while (nbJoueur < 2 || nbJoueur > 6){
             
-            System.out.println("Combien êtes-vous pour jouer ? (min : 2 / max : 6)");
+            System.out.println("\tCombien êtes-vous pour jouer ? (min : 2 / max : 6)");
+            System.out.print("\t");
             nbJoueur = sc.nextInt(); 
         }
         
         
         
         for(int i = 0; i < nbJoueur; i++) {
-            System.out.println("Quel est votre nom ? ");
+            System.out.println("\tQuel est votre nom ? ");
+            System.out.print("\t");
             String nomJoueur = sc.next();
             nomJoueurs.add(nomJoueur);
             
@@ -62,37 +72,17 @@ public class IHM extends Observable{
     }
     
     public void acheter(Propriete p) {
-        System.out.println("Il n'y a pas de propriétaire.");
+        System.out.println("\tIl n'y a pas de propriétaire.");
+        System.out.print("\t");
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Voulez-vous acheter la propriété " + p.getNomCarreau() + ", coutant " + p.getPrix() + "€ ? (oui/non) ");
+        System.out.println("\tVoulez-vous acheter la propriété " + p.getNomCarreau() + ", coutant " + p.getPrix() + "€ ? (oui/non) ");
+        System.out.print("\t");
         String reponse = sc.nextLine();
         
         String oui = "oui";
         String non = "non";
         
-//        while (!oui.equals(reponse) ^ !non.equals(reponse)){
-//            System.out.println("Voulez-vous acheter la propriété " + p.getNomCarreau() + ", coutant " + p.getPrix() + "€ ? (oui/non) ");
-//            reponse = sc.nextLine();   
-//        }
-//        
-//         if(oui.equals(reponse)){
-//                setChanged();
-//                notifyObservers(Commande.ACHETER);
-//                clearChanged();
-//            } 
-//            else if (non.equals(reponse)){
-//                setChanged(); 
-//                notifyObservers(Commande.NON);
-//                clearChanged();
-//            }
-//            else {          
-//                reponse = sc.nextLine(); 
-//            }
-        
-       
-        
-        System.out.println(reponse);
         if(oui.equals(reponse)){
             setChanged();
             notifyObservers(Commande.ACHETER);
@@ -102,51 +92,54 @@ public class IHM extends Observable{
             setChanged(); 
             notifyObservers(Commande.NON);
             clearChanged();
+            System.out.println("\tVous n'avez pas acheté la propriété.");
 
         }
     }
     
     public void joueurSupprime(Joueur j){
-        System.out.println("Le joueur : " + j.getNomJoueur() + " est en faillite, il est donc retiré du jeu.");
+        System.out.println("\t\033[31mLe joueur : " + j.getNomJoueur() + " est en faillite, il est donc retiré du jeu.\033[00m");
     }
     
     public void vainqueur(Joueur j) {
-        System.out.println("Le joueur : " + j.getNomJoueur() + " a gangé cette partie de Monopoly." );
+        System.out.println("=====================================================================================");
+        System.out.println("\tLe joueur : " + j.getNomJoueur() + " a gangé cette partie de Monopoly." );
+        System.out.println("=====================================================================================");
     }
     
     public void aFaitDouble(){
-        System.out.println("Tu as fais un double.");
+        System.out.println("\tTu as fais un double.");
     }
     
     public void afficheAchatProprieteAvant(Joueur jCourant, Propriete p){
-        System.out.println("VOUS VENEZ D'ACHETER LA CASE : "+ p.getNomCarreau());
-        System.out.println("Vous aviez : " + jCourant.getCash() + "€.");
+        System.out.println("\tVOUS VENEZ D'ACHETER LA CASE : "+ p.getNomCarreau());
+        System.out.println("\tVous aviez : " + jCourant.getCash() + "€.");
     }
     
     public void afficheAchatProprieteApres(Joueur jCourant, Propriete p){
-        System.out.println("Et Maintenant vous avez : "+ jCourant.getCash()+ "€.");
+        System.out.println("\tEt Maintenant vous avez : "+ jCourant.getCash()+ "€.");
     }
     
     public void affichePayerLoyer(Propriete p) {
-        System.out.println("TU ES TOMBE SUR UNE PROPRIETE !");
-        System.out.println(p.getProprietaire().getCash());
+        System.out.println("\tTU ES TOMBE SUR UNE PROPRIETE !");
+        System.out.println("\t" + p.getProprietaire().getCash());
 
     }
     
     public void afficherAvancer(Joueur jCourant, int[] valDes) {
-        System.out.println("Valeur des dés : " + valDes[0] + "   " + valDes[1]);
-        System.out.println(jCourant.getNomJoueur() + " est a la position " + jCourant.getPositionCourante().getNumero() + ".");
+        System.out.println("\tValeur des dés : " + valDes[0] + "   " + valDes[1]);
+        System.out.println("\t" + jCourant.getNomJoueur() + " est sur la case \033[32m" + jCourant.getPositionCourante().getNomCarreau() + "\033[00m.");
     }
     
     public void affichePartrimoine(Joueur jCourant){
-        System.out.println("Votre patrimoine : ");
-        System.out.println("\tNombres de compagnies : " + jCourant.getCompagnies().size() + ".");
-        System.out.println("\tNombres de gares : "  + jCourant.getGares().size() + ".");
-        System.out.println("\tNombres de propriete à construire : " + jCourant.getProprietesAConstruires().size() + ".");
+        System.out.println("\tVotre patrimoine : ");
+        System.out.println("\t\t* Nombres de compagnies : " + jCourant.getCompagnies().size() + ".");
+        System.out.println("\t\t* Nombres de gares : "  + jCourant.getGares().size() + ".");
+        System.out.println("\t\t* Nombres de propriete à construire : " + jCourant.getProprietesAConstruires().size() + ".");
     }
     
     public void afficherSweetHome() {
-        System.out.println("Vous êtes chez vous ! :)");
+        System.out.println("\tVous êtes chez vous ! :)");
         new Scanner(System.in).nextLine();
     }
  }
