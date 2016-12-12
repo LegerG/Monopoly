@@ -48,6 +48,7 @@ public class Controleur implements Observer{
     @Override    
     public void update(Observable o, Object arg) {
         if (arg == Commande.LANCER_DES) {
+            
             valDes = lancerDés();
             new Scanner(System.in).nextLine();
             
@@ -286,7 +287,7 @@ public class Controleur implements Observer{
         int loyer = p.calculLoyer(valDes);
         jCourant.payerLoyer(loyer);
         p.getProprietaire().recevoirLoyer(loyer);
-        ihm.affichePayerLoyer(p);
+        ihm.affichePayerLoyer(p, loyer, jCourant);
     }
     
     
