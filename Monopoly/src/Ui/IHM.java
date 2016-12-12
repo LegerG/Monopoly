@@ -100,7 +100,7 @@ public class IHM extends Observable{
            setChanged();
            notifyObservers(Commande.NON);
            clearChanged();
-           System.out.println("\tVous n'avez pas acheté la propriété.");
+           
         } 
         else if(reponse == 3){
            setChanged();
@@ -112,6 +112,10 @@ public class IHM extends Observable{
     
     public void joueurSupprime(Joueur j){
         System.out.println("\t\033[34m" + j.getNomJoueur() + " \033[00mest en faillite, il est donc retiré du jeu.\033[00m");
+    }
+    
+    public void afficherRefus() {
+        System.out.println("\tVous n'avez pas acheté la propriété.");
     }
     
     public void vainqueur(Joueur j) {

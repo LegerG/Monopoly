@@ -89,12 +89,17 @@ public class Controleur implements Observer{
         }
         else if (arg == Commande.ACHETER) {
             
-              acheterPropriete();
+            acheterPropriete();
 
         }
         else if (arg == Commande.ABANDON) {
             
-              joueurs.remove(jCourant);
+            joueurs.remove(jCourant);
+
+        }
+        else if (arg == Commande.NON) {
+            
+            ihm.afficherRefus();
 
         }
            
